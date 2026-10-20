@@ -49,7 +49,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (process.env.NODE_ENV !== "production") return;
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/sw.js").catch(() => {});
+      navigator.serviceWorker.register(`/sw.js?v=${process.env.NEXT_PUBLIC_BUILD_ID}`, { scope: "/" }).catch(() => {});
     }
   }, []);
 

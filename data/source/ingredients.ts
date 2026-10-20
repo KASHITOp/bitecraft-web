@@ -105,7 +105,7 @@ export const INGREDIENT_ROWS: IngredientRow[] = [
   ["sabudana", "Sago pearls", ["sabudana", "javvarisi", "sabakki", "saggubiyyam"], "Grains & bread", "g", 352, 0.2, 87, 0.2, 0.9, 500, "500 g", 60, 58, 65],
   ["dosa-batter", "Idli-dosa batter", ["dosa batter", "idli maavu", "dose hittu", "batter"], "Grains & bread", "g", 130, 3.5, 27, 0.5, 1.5, 1000, "1 kg", 90, 88, 95],
   ["puffed-rice", "Puffed rice", ["murmura", "kurmura", "mandakki", "pori", "muri", "borugulu"], "Grains & bread", "g", 380, 7, 85, 0.5, 1.5, 200, "200 g", 30, 28, 32],
-  ["couscous", "Couscous", ["couscous"], "Grains & bread", "g", 376, 13, 77, 0.6, 5, 500, "500 g", 220, 210, 230],
+  ["couscous", "Couscous", ["kuskus", "semolina pearls"], "Grains & bread", "g", 376, 13, 77, 0.6, 5, 500, "500 g", 220, 210, 230],
 
   // ---- Dal & pulses ----
   ["moong-dal", "Moong dal (yellow, split)", ["moong dal", "mung dal", "hesaru bele", "pasi paruppu", "pesara pappu"], "Dal & pulses", "g", 348, 24, 60, 1.2, 8, 500, "500 g", 80, 78, 85],
@@ -133,11 +133,11 @@ export const INGREDIENT_ROWS: IngredientRow[] = [
   ["mustard-seeds", "Mustard seeds", ["rai", "mohri", "sasive", "kadugu", "aavalu"], "Masala & condiments", "g", 508, 26, 28, 36, 12, 100, "100 g", 25, 24, 28],
   ["garam-masala", "Garam masala", ["garam masala", "masala powder"], "Masala & condiments", "g", 380, 14, 50, 15, 30, 100, "100 g", 70, 68, 75],
   ["coriander-powder", "Coriander powder", ["dhaniya powder", "dhane pud", "kothambari pudi", "malli thool"], "Masala & condiments", "g", 298, 12, 55, 18, 42, 100, "100 g", 35, 32, 38],
-  ["chaat-masala", "Chaat masala", ["chaat masala"], "Masala & condiments", "g", 200, 6, 40, 4, 15, 100, "100 g", 60, 58, 62],
+  ["chaat-masala", "Chaat masala", ["chat masala", "chatpata masala"], "Masala & condiments", "g", 200, 6, 40, 4, 15, 100, "100 g", 60, 58, 62],
   ["pepper", "Black pepper powder", ["kali mirch", "miri", "menasu", "milagu", "miriyalu"], "Masala & condiments", "g", 251, 10, 64, 3.3, 25, 100, "100 g", 90, 88, 95],
   ["oregano", "Oregano and chilli flakes", ["mixed herbs", "pizza seasoning", "chilli flakes"], "Masala & condiments", "g", 270, 9, 64, 4, 40, 25, "25 g pack", 45, 42, 48],
   ["hing", "Asafoetida", ["hing", "heeng", "ingu", "perungayam", "inguva"], "Masala & condiments", "g", 297, 4, 68, 1, 4, 50, "50 g", 60, 58, 65],
-  ["pav-bhaji-masala", "Pav bhaji masala", ["pav bhaji masala"], "Masala & condiments", "g", 340, 12, 50, 10, 25, 100, "100 g", 75, 72, 78],
+  ["pav-bhaji-masala", "Pav bhaji masala", ["bhaji masala", "pav bhaji powder"], "Masala & condiments", "g", 340, 12, 50, 10, 25, 100, "100 g", 75, 72, 78],
   ["sambar-powder", "Sambar powder", ["sambar masala", "sambar pudi", "sambar podi"], "Masala & condiments", "g", 330, 13, 50, 9, 25, 100, "100 g", 60, 58, 65],
   ["kasuri-methi", "Dried fenugreek leaves", ["kasuri methi", "kasoori methi"], "Masala & condiments", "g", 300, 21, 50, 5, 25, 25, "25 g", 30, 28, 32],
   ["soy-sauce", "Soy sauce", ["soya sauce", "dark soy"], "Masala & condiments", "ml", 53, 8, 5, 0, 0.8, 200, "200 ml", 60, 58, 65],

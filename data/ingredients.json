@@ -1892,7 +1892,10 @@
  {
   "id": "couscous",
   "name": "Couscous",
-  "aliases": [],
+  "aliases": [
+   "kuskus",
+   "semolina pearls"
+  ],
   "category": "Grains & bread",
   "unit": "g",
   "nutrition": {
@@ -2560,7 +2563,10 @@
  {
   "id": "chaat-masala",
   "name": "Chaat masala",
-  "aliases": [],
+  "aliases": [
+   "chat masala",
+   "chatpata masala"
+  ],
   "category": "Masala & condiments",
   "unit": "g",
   "nutrition": {
@@ -2668,7 +2674,10 @@
  {
   "id": "pav-bhaji-masala",
   "name": "Pav bhaji masala",
-  "aliases": [],
+  "aliases": [
+   "bhaji masala",
+   "pav bhaji powder"
+  ],
   "category": "Masala & condiments",
   "unit": "g",
   "nutrition": {

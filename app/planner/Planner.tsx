@@ -160,7 +160,12 @@ export function Planner() {
 function MealRow({ meal, onShuffle, onLock, onMess }: { meal: Meal; onShuffle: () => void; onLock: () => void; onMess: () => void }) {
   const r = meal.recipeId ? RECIPE.get(meal.recipeId) : undefined;
   return (
-    <li className="rounded-md border border-rule bg-surface" data-testid={`meal-${meal.slot}`}>
+    <li
+      className="rounded-md border border-rule bg-surface"
+      data-testid={`meal-${meal.slot}`}
+      data-kcal={r && !meal.mess ? Math.round(r.macros.kcal * meal.portion) : 0}
+      data-protein={r && !meal.mess ? Math.round(r.macros.protein * meal.portion) : 0}
+    >
       <div className="flex items-center justify-between border-b border-rule px-3 py-1.5">
         <h2 className="label">{SLOT_LABEL[meal.slot]}</h2>
         <label className="flex min-h-10 cursor-pointer items-center gap-2 text-sm font-semibold">

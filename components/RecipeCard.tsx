@@ -21,7 +21,9 @@ export function RecipeCard({ recipe: r, coverage }: { recipe: Recipe; coverage?:
         <span className="text-[0.625rem] font-bold uppercase tracking-wider opacity-90">{FAMILY_LABEL[r.family].split(" ")[0]}</span>
       </span>
       <span className="flex min-w-0 flex-1 flex-col justify-center gap-1.5 px-3 py-2.5">
-        <span className="text-[1.05rem] font-bold leading-snug">{r.title}</span>
+        <span className="text-[1.05rem] font-bold leading-snug" data-testid="card-title">
+          {r.title}
+        </span>
         <span className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
           <span>
             <span className="num font-semibold">₹{r.costPerServing}</span>
