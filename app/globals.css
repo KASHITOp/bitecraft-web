@@ -1,0 +1,269 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------
+   BiteCraft tokens. Steel tiffin + market chalkboard.
+   Light and dark are designed separately, not inverted.
+   --------------------------------------------------------------- */
+:root {
+  --bg: #eef0ec;
+  --surface: #ffffff;
+  --surface-2: #f6f7f4;
+  --ink: #1c2420;
+  --muted: #5c6862;
+  --rule: #d5dad5;
+  --rule-strong: #b7bfb9;
+
+  --accent: #e2a615; /* turmeric: fills only, never small text */
+  --accent-ink: #1c2420;
+  --accent-soft: #f6e7bd;
+  --chilli: #c4442b;
+  --chilli-soft: #f7dfd8;
+
+  --broke: #3f8a4e;
+  --broke-text: #2f7140;
+  --balanced: #3d6e8f;
+  --balanced-text: #335f7c;
+  --treat: #6b3f73;
+  --treat-text: #6b3f73;
+
+  --focus: #1c2420;
+
+  /* ingredient family bands */
+  --fam-dal: #c9962b;
+  --fam-greens: #4e8a3e;
+  --fam-egg: #f1dc8a;
+  --fam-tomato: #c8432f;
+  --fam-dairy: #f7f5ee;
+  --fam-dairy-border: #d9cbb0;
+  --fam-grain: #d9b97a;
+  --fam-meat: #8e4b3a;
+  --fam-fruit: #e08a3c;
+  --fam-bean: #7a5a3e;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141917;
+    --surface: #1c2320;
+    --surface-2: #232b27;
+    --ink: #e6eae6;
+    --muted: #9eaaa3;
+    --rule: #2f3934;
+    --rule-strong: #46524b;
+    --accent: #e9b23a;
+    --accent-ink: #141917;
+    --accent-soft: #3a3220;
+    --chilli: #ec7a62;
+    --chilli-soft: #3b231e;
+    --broke: #6dbb7c;
+    --broke-text: #7fc98d;
+    --balanced: #7fb0d1;
+    --balanced-text: #8dbbda;
+    --treat: #c291cb;
+    --treat-text: #cfa2d7;
+    --focus: #e9b23a;
+    --fam-dal: #a87c22;
+    --fam-greens: #3f7533;
+    --fam-egg: #cdb45c;
+    --fam-tomato: #a8392a;
+    --fam-dairy: #2c2a25;
+    --fam-dairy-border: #6b5d45;
+    --fam-grain: #a88c52;
+    --fam-meat: #7a3f31;
+    --fam-fruit: #b86e2c;
+    --fam-bean: #6a4d35;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #141917;
+  --surface: #1c2320;
+  --surface-2: #232b27;
+  --ink: #e6eae6;
+  --muted: #9eaaa3;
+  --rule: #2f3934;
+  --rule-strong: #46524b;
+  --accent: #e9b23a;
+  --accent-ink: #141917;
+  --accent-soft: #3a3220;
+  --chilli: #ec7a62;
+  --chilli-soft: #3b231e;
+  --broke: #6dbb7c;
+  --broke-text: #7fc98d;
+  --balanced: #7fb0d1;
+  --balanced-text: #8dbbda;
+  --treat: #c291cb;
+  --treat-text: #cfa2d7;
+  --focus: #e9b23a;
+  --fam-dal: #a87c22;
+  --fam-greens: #3f7533;
+  --fam-egg: #cdb45c;
+  --fam-tomato: #a8392a;
+  --fam-dairy: #2c2a25;
+  --fam-dairy-border: #6b5d45;
+  --fam-grain: #a88c52;
+  --fam-meat: #7a3f31;
+  --fam-fruit: #b86e2c;
+  --fam-bean: #6a4d35;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-chilli: var(--chilli);
+  --color-chilli-soft: var(--chilli-soft);
+  --color-broke: var(--broke);
+  --color-balanced: var(--balanced);
+  --color-treat: var(--treat);
+  --font-sans: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+
+  /* type scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.25rem;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01";
+}
+
+/* Every number gets JetBrains Mono with tabular figures. */
+.num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum", "zero" 0;
+  letter-spacing: -0.01em;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* chalkboard rule under section labels */
+.label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.tap {
+  min-height: 48px;
+  min-width: 48px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0 1.1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  border: 1.5px solid var(--ink);
+  background: var(--surface);
+  color: var(--ink);
+  transition: background-color 120ms ease, transform 120ms ease;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+.btn-ghost {
+  border-color: var(--rule-strong);
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 40px;
+  padding: 0 0.85rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--rule-strong);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.chip[aria-pressed="true"],
+.chip[aria-checked="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+.field {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 0.9rem;
+  border-radius: 6px;
+  border: 1.5px solid var(--rule-strong);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 1rem;
+}
+.field::placeholder {
+  color: var(--muted);
+}
+
+.tier-broke {
+  color: var(--broke-text);
+  border-color: var(--broke);
+}
+.tier-balanced {
+  color: var(--balanced-text);
+  border-color: var(--balanced);
+}
+.tier-treat {
+  color: var(--treat-text);
+  border-color: var(--treat);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
