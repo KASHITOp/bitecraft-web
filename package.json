@@ -4,9 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "data": "tsx scripts/build-data.ts",
+    "verify-recipes": "tsx scripts/verify-recipes.ts",
+    "prebuild": "npm run data && npm run verify-recipes",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "vitest run",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "next": "16.4.2",
