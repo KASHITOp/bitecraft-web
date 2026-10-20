@@ -178,7 +178,7 @@ export interface ChatMessage {
   text: string;
   /** chef replies may carry a recipe card */
   recipe?: Omit<ChefRecipe, "savedAt">;
-  matches?: { id: string; have: number; total: number }[];
+  matches?: { id: string; have: number; total: number; missing: number }[];
   note?: string;
 }
 const cleanMsg = (v: unknown): ChatMessage | null => {
@@ -197,6 +197,7 @@ const cleanMsg = (v: unknown): ChatMessage | null => {
             id: m.id as string,
             have: typeof m.have === "number" ? m.have : 0,
             total: typeof m.total === "number" ? m.total : 0,
+            missing: typeof m.missing === "number" ? m.missing : 0,
           }))
       : undefined,
     note: str(v.note) ? v.note : undefined,
