@@ -165,7 +165,8 @@ body {
   border-radius: 4px;
 }
 
-/* chalkboard rule under section labels */
+/* Reusable component classes. Layered so Tailwind utilities can override them. */
+@layer components {
 .label {
   font-size: 0.75rem;
   font-weight: 700;
@@ -257,6 +258,8 @@ body {
   border-color: var(--treat);
 }
 
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -266,4 +269,27 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+@layer components {
+/* Ingredient-family colour bands on recipe cards. fg is the icon/text colour on the band. */
+.fam { color: #fff; }
+.fam-dal { background: var(--fam-dal); color: #1c2420; }
+.fam-greens { background: var(--fam-greens); color: #fff; }
+.fam-egg { background: var(--fam-egg); color: #1c2420; }
+.fam-tomato { background: var(--fam-tomato); color: #fff; }
+.fam-dairy { background: var(--fam-dairy); color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--fam-dairy-border); }
+.fam-grain { background: var(--fam-grain); color: #1c2420; }
+.fam-meat { background: var(--fam-meat); color: #fff; }
+.fam-fruit { background: var(--fam-fruit); color: #1c2420; }
+.fam-bean { background: var(--fam-bean); color: #fff; }
+
+/* thin progress bar used for macros */
+.meter { height: 6px; border-radius: 3px; background: var(--rule); overflow: hidden; }
+.meter > span { display: block; height: 100%; background: var(--ink); border-radius: 3px; }
+.meter > span.over { background: var(--chilli); }
+
+/* hide scrollbar on horizontal chip rows but keep them scrollable */
+.scroll-row { overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.scroll-row::-webkit-scrollbar { display: none; }
 }
