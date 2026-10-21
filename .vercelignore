@@ -1,0 +1,12 @@
+# Never upload secrets or local build output
+.env*
+.next
+out
+node_modules
+# Android app project and its Gradle output
+android
+# test and audit output
+test-results
+playwright-report
+blob-report
+lighthouse
