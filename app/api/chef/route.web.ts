@@ -10,6 +10,15 @@ import type { Gear } from "@/lib/types";
 
 const GEAR = ["kettle", "induction", "pan", "microwave", "fridge"] as const;
 
+/** Defaults when GEMINI_MODEL / GEMINI_FALLBACK_MODEL aren't set. Checked against the API in Oct 2026. */
+const DEFAULT_MODEL = "gemini-3.8-flash";
+const BACKUP_MODELS = "gemini-3.6-flash,gemini-3.5-flash,gemini-3.5-flash-lite";
+const PER_MODEL_MS = 18_000;
+const TOTAL_BUDGET_MS = 55_000;
+
+// Several model attempts at most; give the function room on Vercel.
+export const maxDuration = 60;
+
 const RequestSchema = z.object({
   message: z.string().trim().max(500).default(""),
   usePantry: z.boolean().optional(),
@@ -225,26 +234,53 @@ export async function POST(req: Request): Promise<Response> {
     return json(fallback([], "Tell me what's in your room and I'll take it from there."));
   }
 
-  const model = process.env.GEMINI_MODEL || "gemini-2.5-flash";
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 25_000);
+  // Main model first; if Google says it's overloaded, rate-limited or slow, walk the backup list.
+  const backups = (process.env.GEMINI_FALLBACK_MODEL || BACKUP_MODELS)
+    .split(",")
+    .map((m) => m.trim())
+    .filter(Boolean);
+  const models = [...new Set([process.env.GEMINI_MODEL || DEFAULT_MODEL, ...backups])];
+  const modelRequest = JSON.stringify({
+    systemInstruction: { parts: [{ text: systemPrompt(gear, tier) }] },
+    contents: [{ role: "user", parts: [{ text: userPrompt(input.message, haveIds, matches, input.profile) }] }],
+    generationConfig: {
+      temperature: 0.6,
+      maxOutputTokens: 4096,
+      responseMimeType: "application/json",
+      responseSchema: RESPONSE_SCHEMA,
+    },
+  });
+  const started = Date.now();
   try {
-    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "x-goog-api-key": key },
-      signal: controller.signal,
-      body: JSON.stringify({
-        systemInstruction: { parts: [{ text: systemPrompt(gear, tier) }] },
-        contents: [{ role: "user", parts: [{ text: userPrompt(input.message, haveIds, matches, input.profile) }] }],
-        generationConfig: {
-          temperature: 0.6,
-          maxOutputTokens: 2048,
-          responseMimeType: "application/json",
-          responseSchema: RESPONSE_SCHEMA,
-        },
-      }),
-    });
-    if (!res.ok) throw new Error(`model status ${res.status}`);
+    let res: Response | null = null;
+    for (const model of models) {
+      const left = TOTAL_BUDGET_MS - (Date.now() - started);
+      if (left < 3000) break;
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), Math.min(PER_MODEL_MS, left));
+      try {
+        res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "x-goog-api-key": key },
+          signal: controller.signal,
+          body: modelRequest,
+        });
+        if (res.ok) {
+          // read the body before the per-model timer can abort it
+          const data = (await res.json()) as unknown;
+          res = Response.json(data);
+          break;
+        }
+        if (![429, 500, 503].includes(res.status)) break;
+        console.error(`[chef] ${model} returned ${res.status}, trying the next model`);
+      } catch (err) {
+        res = null;
+        console.error(`[chef] ${model} failed (${err instanceof Error ? err.message : err}), trying the next model`);
+      } finally {
+        clearTimeout(timer);
+      }
+    }
+    if (!res?.ok) throw new Error(`model status ${res?.status ?? "timeout"}`);
     const data = (await res.json()) as { candidates?: { content?: { parts?: { text?: string }[] } }[] };
     const text = data.candidates?.[0]?.content?.parts?.map((p) => p.text ?? "").join("") ?? "";
     const reply = ModelReply.parse(JSON.parse(text));
@@ -279,7 +315,5 @@ export async function POST(req: Request): Promise<Response> {
   } catch (err) {
     console.error("[chef] falling back:", err instanceof Error ? err.message : err);
     return json(fallback(matches, "The Chef is having a moment, so these are the closest matches from the recipe book."));
-  } finally {
-    clearTimeout(timer);
   }
 }

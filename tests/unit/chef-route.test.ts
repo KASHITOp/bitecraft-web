@@ -83,6 +83,21 @@ describe("/api/chef", () => {
     expect(sent.contents[0].parts[0].text).toContain("bread-omelette");
   });
 
+  it("retries on the backup model when the main one is overloaded", async () => {
+    vi.stubEnv("GEMINI_API_KEY", "k");
+    vi.stubEnv("GEMINI_MODEL", "main-model");
+    vi.stubEnv("GEMINI_FALLBACK_MODEL", "backup-model, third-model");
+    const busy = new Response(JSON.stringify({ error: { status: "UNAVAILABLE" } }), { status: 503 });
+    const fetchSpy = vi.fn().mockResolvedValueOnce(busy).mockResolvedValueOnce(gemini(goodRecipe));
+    vi.stubGlobal("fetch", fetchSpy);
+    const { POST } = await load();
+    const res = await (await POST(body(ask))).json();
+    expect(res.kind).toBe("recipe");
+    expect(fetchSpy).toHaveBeenCalledTimes(2);
+    expect(fetchSpy.mock.calls[0][0]).toContain("models/main-model:");
+    expect(fetchSpy.mock.calls[1][0]).toContain("models/backup-model:");
+  });
+
   it("falls back when the model returns invalid JSON", async () => {
     vi.stubEnv("GEMINI_API_KEY", "k");
     vi.stubGlobal("fetch", vi.fn().mockResolvedValue(gemini({ reply: "hi", recipe: { title: "x" } })));

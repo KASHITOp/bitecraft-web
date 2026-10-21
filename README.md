@@ -41,10 +41,10 @@ The chatbot works without any key: it answers from the local matching engine and
 
    ```
    GEMINI_API_KEY=your-key-here
-   GEMINI_MODEL=gemini-2.5-flash
+   GEMINI_MODEL=gemini-3.8-flash
    ```
 
-   `GEMINI_MODEL` is optional and defaults to `gemini-2.5-flash`.
+   `GEMINI_MODEL` is optional and defaults to `gemini-3.8-flash`. If Google reports that model as overloaded (503) or rate-limited (429), or takes longer than 18 seconds, the route moves down `GEMINI_FALLBACK_MODEL`, a comma-separated list (default `gemini-3.6-flash,gemini-3.5-flash,gemini-3.5-flash-lite`). The whole request stays under 55 seconds before falling back to the local engine. Google retires old models for new keys, so if every call falls back, list what your key can use: `curl -H "x-goog-api-key: $KEY" https://generativelanguage.googleapis.com/v1beta/models`.
 3. Restart `npm run dev`.
 
 The key is only read in `app/api/chef/route.web.ts` on the server. It's sent to Google in a request header and never reaches the browser. The route is rate-limited to 20 requests per 10 minutes per IP (in memory, so per server instance). Model output must match a zod schema and must not use gear the student doesn't own. Anything else falls back to library matches; the chat never shows a raw error.
