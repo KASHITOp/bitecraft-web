@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Icon } from "./Icon";
+import { keepAwake, timerBuzz } from "@/lib/native";
 
 export interface CookStep {
   text: string;
@@ -40,11 +41,15 @@ export function CookMode({
   const step = steps[idx];
 
   const ring = useCallback(() => {
-    try {
-      navigator.vibrate?.([400, 200, 400, 200, 600]);
-    } catch {
-      /* not supported */
-    }
+    // Capacitor Haptics inside the Android app, the Vibration API on the web.
+    void timerBuzz().then((native) => {
+      if (native) return;
+      try {
+        navigator.vibrate?.([400, 200, 400, 200, 600]);
+      } catch {
+        /* not supported */
+      }
+    });
     const ctx = audio.current;
     if (!ctx) return;
     const t0 = ctx.currentTime;
@@ -262,9 +267,20 @@ function fmt(ms: number): string {
   return h ? `${h}:${mm}:${ss}` : `${mm}:${ss}`;
 }
 
-/** Keep the screen on while cooking. Re-acquires after the tab comes back. */
+/** Keep the screen on while cooking: Capacitor keep-awake in the app, the Wake Lock API on the web. */
 function useWakeLock(): boolean {
   const [on, setOn] = useState(false);
+  const [native, setNative] = useState(false);
+  useEffect(() => {
+    let active = true;
+    void keepAwake(true).then((ok) => {
+      if (active && ok) setNative(true);
+    });
+    return () => {
+      active = false;
+      void keepAwake(false);
+    };
+  }, []);
   useEffect(() => {
     type Sentinel = { release: () => Promise<void>; addEventListener: (t: string, f: () => void) => void };
     const nav = navigator as Navigator & { wakeLock?: { request: (t: "screen") => Promise<Sentinel> } };
@@ -296,5 +312,5 @@ function useWakeLock(): boolean {
       void sentinel?.release();
     };
   }, []);
-  return on;
+  return on || native;
 }

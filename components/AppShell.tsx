@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 import { Icon, type IconName } from "./Icon";
 import { useHydrated } from "@/lib/useStored";
 import { useOnboarding, useProfile, useSettings } from "@/lib/state";
 import { targets } from "@/lib/profile";
+import { hideSplash, isNative, onBackButton, setStatusBar } from "@/lib/native";
 
 const TABS: { href: string; label: string; icon: IconName; match: (p: string) => boolean }[] = [
   { href: "/", label: "Explore", icon: "search", match: (p) => p === "/" || p.startsWith("/recipe") },
@@ -46,8 +47,35 @@ export function AppShell({ children }: { children: ReactNode }) {
     else el.dataset.theme = settings.theme;
   }, [hydrated, settings.theme]);
 
+  // Android app only: status bar follows the theme, back button, splash.
+  const pathRef = useRef(pathname);
   useEffect(() => {
-    if (process.env.NODE_ENV !== "production") return;
+    pathRef.current = pathname;
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!isNative()) return;
+    void hideSplash();
+    let cleanup = () => {};
+    void onBackButton(
+      () => pathRef.current,
+      () => router.back(),
+    ).then((c) => (cleanup = c));
+    return () => cleanup();
+  }, [router]);
+
+  useEffect(() => {
+    if (!hydrated || !isNative()) return;
+    const mq = window.matchMedia("(prefers-color-scheme: dark)");
+    const apply = () => void setStatusBar(settings.theme === "dark" || (settings.theme === "system" && mq.matches));
+    apply();
+    mq.addEventListener("change", apply);
+    return () => mq.removeEventListener("change", apply);
+  }, [hydrated, settings.theme]);
+
+  useEffect(() => {
+    // Dev builds skip it, and the Android app doesn't need it: Capacitor serves the files itself.
+    if (process.env.NODE_ENV !== "production" || process.env.NEXT_PUBLIC_MOBILE === "1") return;
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register(`/sw.js?v=${process.env.NEXT_PUBLIC_BUILD_ID}`, { scope: "/" }).catch(() => {});
     }

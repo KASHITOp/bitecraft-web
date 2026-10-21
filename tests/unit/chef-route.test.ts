@@ -36,7 +36,7 @@ const goodRecipe = {
 
 async function load() {
   vi.resetModules();
-  return import("@/app/api/chef/route");
+  return import("@/app/api/chef/route.web");
 }
 
 describe("/api/chef", () => {

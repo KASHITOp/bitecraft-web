@@ -12,6 +12,10 @@ import { useChat, usePantry, useProfile, type ChatMessage } from "@/lib/state";
 
 const SUGGESTIONS = ["2 eggs, half onion, bread, cheese slice", "Maggi and one tomato", "Poha, peanuts, a lemon", "Paneer, capsicum, curd"];
 
+const API_BASE = (process.env.NEXT_PUBLIC_API_BASE ?? "").replace(/\/+$/, "");
+
+class NoServer extends Error {}
+
 const newId = () => `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 7)}`;
 
 function isChefResponse(v: unknown): v is ChefResponse {
@@ -75,7 +79,10 @@ export function Chef() {
 
     let reply: ChatMessage;
     try {
-      const res = await fetch("/api/chef", {
+      // The Android app has no server of its own: it calls a deployed BiteCraft if
+      // NEXT_PUBLIC_API_BASE was set at build time, otherwise it answers locally.
+      if (process.env.NEXT_PUBLIC_MOBILE === "1" && !API_BASE) throw new NoServer();
+      const res = await fetch(`${API_BASE}/api/chef`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
@@ -86,13 +93,15 @@ export function Chef() {
         data.kind === "recipe"
           ? { id: newId(), role: "chef", text: data.reply, recipe: { ...data.recipe, id: newId() }, matches: data.matches }
           : { id: newId(), role: "chef", text: data.reply, note: data.note, matches: data.matches };
-    } catch {
+    } catch (err) {
       reply = localFallback(
         message,
         usePantry,
-        typeof navigator !== "undefined" && !navigator.onLine
-          ? "You're offline, so these come from the recipe book on your phone."
-          : "Couldn't reach the Chef just now, so these come from the recipe book on your phone.",
+        err instanceof NoServer
+          ? "These come from the recipe book on your phone. The AI Chef is in the web version."
+          : typeof navigator !== "undefined" && !navigator.onLine
+            ? "You're offline, so these come from the recipe book on your phone."
+            : "Couldn't reach the Chef just now, so these come from the recipe book on your phone.",
       );
     }
     setChat((prev) => [...prev, reply]);

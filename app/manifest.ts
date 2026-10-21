@@ -1,5 +1,8 @@
 import type { MetadataRoute } from "next";
 
+// Needed for the static export used by the Android app.
+export const dynamic = "force-static";
+
 export default function manifest(): MetadataRoute.Manifest {
   return {
     id: "/",

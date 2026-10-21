@@ -52,6 +52,8 @@ interface Indexed {
   recipe: Recipe;
   title: string;
   ingredients: string;
+  /** every full ingredient name, for exact-name bonus */
+  names: Set<string>;
 }
 
 const cache = new WeakMap<readonly Recipe[], Indexed[]>();
@@ -68,6 +70,7 @@ function index(recipes: readonly Recipe[], ing: ReadonlyMap<string, Ingredient>)
         return i ? namesOf(i).join(" ") : "";
       })
       .join(" | "),
+    names: new Set(r.ingredients.flatMap((ri) => (ing.get(ri.id) ? namesOf(ing.get(ri.id)!) : []))),
   }));
   cache.set(recipes, built);
   return built;
@@ -97,6 +100,8 @@ export function searchRecipes(
       }
       s += inTitle ? 3 : 0;
       s += inIng ? 1 : 0;
+      // "kanda" is the whole local name of onion, but only part of "pati kanda" (spring onion)
+      s += row.names.has(t) ? 1 : 0;
     }
     if (ok) scored.push({ r: row.recipe, s });
   }

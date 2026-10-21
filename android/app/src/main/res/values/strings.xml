@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">BiteCraft</string>
+    <string name="title_activity_main">BiteCraft</string>
+    <string name="package_name">com.bitecraft.app</string>
+    <string name="custom_url_scheme">com.bitecraft.app</string>
+</resources>

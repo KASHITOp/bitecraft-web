@@ -47,16 +47,43 @@ The chatbot works without any key: it answers from the local matching engine and
    `GEMINI_MODEL` is optional and defaults to `gemini-2.5-flash`.
 3. Restart `npm run dev`.
 
-The key is only read in `app/api/chef/route.ts` on the server. It's sent to Google in a request header and never reaches the browser. The route is rate-limited to 20 requests per 10 minutes per IP (in memory, so per server instance). Model output must match a zod schema and must not use gear the student doesn't own. Anything else falls back to library matches; the chat never shows a raw error.
+The key is only read in `app/api/chef/route.web.ts` on the server. It's sent to Google in a request header and never reaches the browser. The route is rate-limited to 20 requests per 10 minutes per IP (in memory, so per server instance). Model output must match a zod schema and must not use gear the student doesn't own. Anything else falls back to library matches; the chat never shows a raw error.
 
 ## Deploy to Vercel
 
 1. Push the repo to GitHub.
-2. In Vercel, **Add New → Project**, import the repo and set **Root Directory** to `web`. Everything else is detected (Next.js, `npm run build`).
+2. In Vercel, **Add New → Project**, import the repo. In the bitecraft-web repo the app is at the root, so leave **Root Directory** empty (set it to `web` only if the app sits in a `web/` subfolder). Everything else is detected (Next.js, `npm run build`).
 3. Under **Settings → Environment Variables**, add `GEMINI_API_KEY` (and optionally `GEMINI_MODEL`) for Production and Preview.
 4. Deploy. The app is static except `/api/chef`, which runs as a serverless function.
 
 Or with the CLI: `cd web && npx vercel` then `npx vercel env add GEMINI_API_KEY`.
+
+## Android app (Capacitor)
+
+The same code ships as an Android app. A mobile build (`BUILD_TARGET=mobile`) does a static export into `out/`: no API routes, no service worker, every screen as `<screen>/index.html`. Capacitor (`com.bitecraft.app`, project in `android/`) bundles that into the APK, so the app works fully offline.
+
+Inside the app:
+- **Chef**: with no server, it answers from the local recipe book on the phone. To use the live AI Chef, deploy the web version first, then build with `NEXT_PUBLIC_API_BASE=https://your-bitecraft.vercel.app` and the app calls that `/api/chef` (CORS is allowed). If that call fails, it falls back to the local engine. It never shows an error.
+- **Back button** goes back a screen; on the Explore tab it closes the app.
+- **Status bar** matches the header colour and follows the light/dark theme.
+- **Cook mode** keeps the screen on (`@capacitor-community/keep-awake`) and buzzes with `@capacitor/haptics` when a timer ends.
+
+### Rebuild the APK
+
+You need JDK 21 (Capacitor 8 requires it) and an Android SDK with `platforms;android-36` and `build-tools;36.0.0`. Point `JAVA_HOME` and `ANDROID_HOME` at them. If they aren't set, the script looks for a portable toolchain in `../android-toolchain/jdk-21` and `../android-toolchain/sdk`.
+
+```bash
+cd web
+npm install
+npm run apk
+```
+
+That runs `npm run build:mobile` (data, recipe check, static export, `cap sync android`), then `gradlew assembleDebug`, and copies the result to `../release/BiteCraft.apk`. It prints the size, package name, version and label from `aapt`. The APK is debug-signed, which is fine for sideloading: copy it to the phone and allow "install unknown apps" for your file manager.
+
+Other pieces:
+- `npm run build:mobile` builds the static app and syncs it into `android/` without running Gradle. Open `android/` in Android Studio to run it on a device.
+- `node scripts/make-android-assets.mjs` regenerates the launcher icons (from `public/icons/icon.svg`) and the plain light/dark splash.
+- API routes are named `route.web.ts`. Next only treats them as routes in the web build, so the static export skips them.
 
 ## Tests and checks
 
@@ -74,7 +101,7 @@ The Playwright server runs with `GEMINI_API_KEY` empty, so the chef test checks 
 ## Where things live
 
 ```
-app/                  screens (App Router) and app/api/chef/route.ts
+app/                  screens (App Router) and app/api/chef/route.web.ts (web build only)
 components/           UI pieces (RecipeCard, CookMode, Ring, ChefRecipeCard, Icon…)
 lib/storage.ts        the only code that touches localStorage (try/catch, safe defaults)
 lib/state.ts          typed hooks per storage key, with validation
@@ -84,7 +111,11 @@ lib/prices.ts         basket comparison
 lib/chef.ts           ingredient parsing + coverage matching (shared by server and offline fallback)
 data/source/          hand-written ingredients and recipes (edit these)
 data/*.json           generated, imported at build time
-scripts/              build-data, verify-recipes, make-icons, lighthouse
+scripts/              build-data, verify-recipes, make-icons, lighthouse,
+                      build-mobile, build-apk, make-android-assets
+lib/native.ts         Capacitor bridge (back button, status bar, keep-awake, haptics)
+capacitor.config.ts   app id, name, splash and status bar defaults
+android/              Capacitor Android project
 public/sw.js          service worker (precache every screen, network-only for /api)
 ```
 

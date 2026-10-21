@@ -181,6 +181,21 @@ function fallback(matches: ChefMatch[], note: string): ChefResponse {
   };
 }
 
+// The Android app (https://localhost inside a WebView) calls this from another origin.
+const CORS = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+};
+
+function json(body: ChefResponse): Response {
+  return Response.json(body, { headers: CORS });
+}
+
+export function OPTIONS(): Response {
+  return new Response(null, { status: 204, headers: CORS });
+}
+
 export async function POST(req: Request): Promise<Response> {
   let body: unknown;
   try {
@@ -199,15 +214,15 @@ export async function POST(req: Request): Promise<Response> {
   const matches = matchRecipes(haveIds, RECIPES, { gear, tier, limit: 5 });
 
   if (rateLimited(clientIp(req))) {
-    return Response.json(fallback(matches, "You've asked a lot in the last 10 minutes, so these come straight from the recipe book."));
+    return json(fallback(matches, "You've asked a lot in the last 10 minutes, so these come straight from the recipe book."));
   }
 
   const key = process.env.GEMINI_API_KEY;
   if (!key) {
-    return Response.json(fallback(matches, "The Chef's AI isn't switched on here, so these are the closest matches from the recipe book."));
+    return json(fallback(matches, "The Chef's AI isn't switched on here, so these are the closest matches from the recipe book."));
   }
   if (!haveIds.length && !input.message) {
-    return Response.json(fallback([], "Tell me what's in your room and I'll take it from there."));
+    return json(fallback([], "Tell me what's in your room and I'll take it from there."));
   }
 
   const model = process.env.GEMINI_MODEL || "gemini-2.5-flash";
@@ -260,10 +275,10 @@ export async function POST(req: Request): Promise<Response> {
       },
       matches,
     };
-    return Response.json(payload);
+    return json(payload);
   } catch (err) {
     console.error("[chef] falling back:", err instanceof Error ? err.message : err);
-    return Response.json(fallback(matches, "The Chef is having a moment, so these are the closest matches from the recipe book."));
+    return json(fallback(matches, "The Chef is having a moment, so these are the closest matches from the recipe book."));
   } finally {
     clearTimeout(timer);
   }
