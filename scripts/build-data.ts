@@ -7,6 +7,7 @@
 import { writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { INGREDIENT_ROWS } from "../data/source/ingredients";
+import { INGREDIENT_SEARCH } from "../data/source/ingredient-search";
 import { ALL_RECIPES } from "../data/source";
 import { computeRecipe, slugify } from "../lib/compute";
 import type { Ingredient } from "../lib/types";
@@ -23,8 +24,14 @@ const ingredients: Ingredient[] = INGREDIENT_ROWS.map(
     nutrition: { kcal, protein, carbs, fat, fibre },
     pack: { size, label },
     prices: { zepto: z, blinkit: b, instamart: i },
+    searchQuery: INGREDIENT_SEARCH[id]?.[0] ?? name.toLowerCase(),
+    packSize: INGREDIENT_SEARCH[id]?.[1] ?? label,
+    ...(INGREDIENT_SEARCH[id]?.[2]?.length ? { searchExclude: INGREDIENT_SEARCH[id]![2] } : {}),
   }),
 );
+
+const unsearchable = INGREDIENT_ROWS.map((r) => r[0]).filter((id) => !INGREDIENT_SEARCH[id]);
+if (unsearchable.length) throw new Error(`No live-price search entry for: ${unsearchable.join(", ")}`);
 
 const byId = new Map(ingredients.map((i) => [i.id, i]));
 if (byId.size !== ingredients.length) throw new Error("Duplicate ingredient id");

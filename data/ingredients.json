@@ -27,7 +27,12 @@
    "zepto": 45,
    "blinkit": 42,
    "instamart": 48
-  }
+  },
+  "searchQuery": "onion",
+  "packSize": "1 kg",
+  "searchExclude": [
+   "spring"
+  ]
  },
  {
   "id": "tomato",
@@ -55,7 +60,14 @@
    "zepto": 25,
    "blinkit": 24,
    "instamart": 28
-  }
+  },
+  "searchQuery": "tomato",
+  "packSize": "500 g",
+  "searchExclude": [
+   "cherry",
+   "ketchup",
+   "sauce"
+  ]
  },
  {
   "id": "potato",
@@ -84,7 +96,16 @@
    "zepto": 40,
    "blinkit": 38,
    "instamart": 42
-  }
+  },
+  "searchQuery": "potato",
+  "packSize": "1 kg",
+  "searchExclude": [
+   "sweet",
+   "baby",
+   "chips",
+   "fries",
+   "wedges"
+  ]
  },
  {
   "id": "garlic",
@@ -113,7 +134,14 @@
    "zepto": 30,
    "blinkit": 28,
    "instamart": 32
-  }
+  },
+  "searchQuery": "garlic",
+  "packSize": "100 g",
+  "searchExclude": [
+   "paste",
+   "bread",
+   "peeled"
+  ]
  },
  {
   "id": "ginger",
@@ -142,7 +170,13 @@
    "zepto": 18,
    "blinkit": 16,
    "instamart": 20
-  }
+  },
+  "searchQuery": "ginger",
+  "packSize": "100 g",
+  "searchExclude": [
+   "paste",
+   "garlic"
+  ]
  },
  {
   "id": "green-chilli",
@@ -171,7 +205,12 @@
    "zepto": 12,
    "blinkit": 10,
    "instamart": 14
-  }
+  },
+  "searchQuery": "green chilli",
+  "packSize": "100 g",
+  "searchExclude": [
+   "sauce"
+  ]
  },
  {
   "id": "coriander",
@@ -201,7 +240,13 @@
    "zepto": 12,
    "blinkit": 10,
    "instamart": 15
-  }
+  },
+  "searchQuery": "coriander leaves",
+  "packSize": "100 g",
+  "searchExclude": [
+   "powder",
+   "seeds"
+  ]
  },
  {
   "id": "mint",
@@ -228,7 +273,13 @@
    "zepto": 15,
    "blinkit": 14,
    "instamart": 18
-  }
+  },
+  "searchQuery": "mint leaves",
+  "packSize": "100 g",
+  "searchExclude": [
+   "chutney",
+   "mouth"
+  ]
  },
  {
   "id": "curry-leaves",
@@ -257,7 +308,9 @@
    "zepto": 10,
    "blinkit": 10,
    "instamart": 12
-  }
+  },
+  "searchQuery": "curry leaves",
+  "packSize": "50 g"
  },
  {
   "id": "spinach",
@@ -285,7 +338,12 @@
    "zepto": 25,
    "blinkit": 22,
    "instamart": 28
-  }
+  },
+  "searchQuery": "spinach",
+  "packSize": "250 g",
+  "searchExclude": [
+   "baby"
+  ]
  },
  {
   "id": "methi",
@@ -313,7 +371,13 @@
    "zepto": 15,
    "blinkit": 14,
    "instamart": 18
-  }
+  },
+  "searchQuery": "methi leaves",
+  "packSize": "100 g",
+  "searchExclude": [
+   "kasuri",
+   "seeds"
+  ]
  },
  {
   "id": "capsicum",
@@ -342,7 +406,13 @@
    "zepto": 30,
    "blinkit": 28,
    "instamart": 34
-  }
+  },
+  "searchQuery": "capsicum green",
+  "packSize": "250 g",
+  "searchExclude": [
+   "red",
+   "yellow"
+  ]
  },
  {
   "id": "bell-pepper",
@@ -369,7 +439,9 @@
    "zepto": 89,
    "blinkit": 85,
    "instamart": 95
-  }
+  },
+  "searchQuery": "capsicum red",
+  "packSize": "250 g"
  },
  {
   "id": "carrot",
@@ -396,7 +468,9 @@
    "zepto": 32,
    "blinkit": 30,
    "instamart": 35
-  }
+  },
+  "searchQuery": "carrot",
+  "packSize": "500 g"
  },
  {
   "id": "cucumber",
@@ -425,7 +499,12 @@
    "zepto": 25,
    "blinkit": 24,
    "instamart": 28
-  }
+  },
+  "searchQuery": "cucumber",
+  "packSize": "500 g",
+  "searchExclude": [
+   "english"
+  ]
  },
  {
   "id": "cabbage",
@@ -454,7 +533,13 @@
    "zepto": 30,
    "blinkit": 28,
    "instamart": 32
-  }
+  },
+  "searchQuery": "cabbage",
+  "packSize": "500 g",
+  "searchExclude": [
+   "red",
+   "purple"
+  ]
  },
  {
   "id": "cauliflower",
@@ -482,7 +567,9 @@
    "zepto": 35,
    "blinkit": 32,
    "instamart": 38
-  }
+  },
+  "searchQuery": "cauliflower",
+  "packSize": "500 g"
  },
  {
   "id": "peas",
@@ -511,7 +598,9 @@
    "zepto": 85,
    "blinkit": 80,
    "instamart": 90
-  }
+  },
+  "searchQuery": "frozen green peas",
+  "packSize": "500 g"
  },
  {
   "id": "corn",
@@ -540,7 +629,13 @@
    "zepto": 110,
    "blinkit": 105,
    "instamart": 115
-  }
+  },
+  "searchQuery": "frozen sweet corn",
+  "packSize": "500 g",
+  "searchExclude": [
+   "baby",
+   "cob"
+  ]
  },
  {
   "id": "mushroom",
@@ -569,7 +664,9 @@
    "zepto": 50,
    "blinkit": 48,
    "instamart": 55
-  }
+  },
+  "searchQuery": "button mushroom",
+  "packSize": "200 g"
  },
  {
   "id": "beans",
@@ -597,7 +694,9 @@
    "zepto": 30,
    "blinkit": 28,
    "instamart": 32
-  }
+  },
+  "searchQuery": "french beans",
+  "packSize": "250 g"
  },
  {
   "id": "lemon",
@@ -626,7 +725,13 @@
    "zepto": 20,
    "blinkit": 18,
    "instamart": 24
-  }
+  },
+  "searchQuery": "lemon",
+  "packSize": "4 pc",
+  "searchExclude": [
+   "juice",
+   "grass"
+  ]
  },
  {
   "id": "spring-onion",
@@ -654,7 +759,9 @@
    "zepto": 20,
    "blinkit": 18,
    "instamart": 22
-  }
+  },
+  "searchQuery": "spring onion",
+  "packSize": "100 g"
  },
  {
   "id": "sweet-potato",
@@ -682,7 +789,9 @@
    "zepto": 40,
    "blinkit": 38,
    "instamart": 44
-  }
+  },
+  "searchQuery": "sweet potato",
+  "packSize": "500 g"
  },
  {
   "id": "beetroot",
@@ -709,7 +818,9 @@
    "zepto": 30,
    "blinkit": 28,
    "instamart": 32
-  }
+  },
+  "searchQuery": "beetroot",
+  "packSize": "500 g"
  },
  {
   "id": "avocado",
@@ -736,7 +847,12 @@
    "zepto": 120,
    "blinkit": 110,
    "instamart": 130
-  }
+  },
+  "searchQuery": "avocado",
+  "packSize": "1 pc",
+  "searchExclude": [
+   "oil"
+  ]
  },
  {
   "id": "baby-corn",
@@ -762,7 +878,9 @@
    "zepto": 40,
    "blinkit": 38,
    "instamart": 45
-  }
+  },
+  "searchQuery": "baby corn",
+  "packSize": "200 g"
  },
  {
   "id": "broccoli",
@@ -787,7 +905,9 @@
    "zepto": 80,
    "blinkit": 75,
    "instamart": 90
-  }
+  },
+  "searchQuery": "broccoli",
+  "packSize": "250 g"
  },
  {
   "id": "lettuce",
@@ -813,7 +933,9 @@
    "zepto": 60,
    "blinkit": 55,
    "instamart": 65
-  }
+  },
+  "searchQuery": "iceberg lettuce",
+  "packSize": "250 g"
  },
  {
   "id": "zucchini",
@@ -838,7 +960,9 @@
    "zepto": 60,
    "blinkit": 58,
    "instamart": 68
-  }
+  },
+  "searchQuery": "zucchini",
+  "packSize": "250 g"
  },
  {
   "id": "banana",
@@ -867,7 +991,13 @@
    "zepto": 45,
    "blinkit": 42,
    "instamart": 50
-  }
+  },
+  "searchQuery": "banana robusta",
+  "packSize": "6 pc",
+  "searchExclude": [
+   "raw",
+   "chips"
+  ]
  },
  {
   "id": "apple",
@@ -894,7 +1024,14 @@
    "zepto": 120,
    "blinkit": 115,
    "instamart": 130
-  }
+  },
+  "searchQuery": "apple shimla",
+  "packSize": "4 pc",
+  "searchExclude": [
+   "juice",
+   "cider",
+   "green"
+  ]
  },
  {
   "id": "pomegranate",
@@ -923,7 +1060,12 @@
    "zepto": 70,
    "blinkit": 65,
    "instamart": 75
-  }
+  },
+  "searchQuery": "pomegranate arils",
+  "packSize": "200 g",
+  "searchExclude": [
+   "juice"
+  ]
  },
  {
   "id": "papaya",
@@ -950,7 +1092,12 @@
    "zepto": 50,
    "blinkit": 48,
    "instamart": 55
-  }
+  },
+  "searchQuery": "papaya",
+  "packSize": "1 kg",
+  "searchExclude": [
+   "raw"
+  ]
  },
  {
   "id": "dates",
@@ -978,7 +1125,9 @@
    "zepto": 120,
    "blinkit": 115,
    "instamart": 125
-  }
+  },
+  "searchQuery": "dates seedless",
+  "packSize": "250 g"
  },
  {
   "id": "raisins",
@@ -1006,7 +1155,9 @@
    "zepto": 90,
    "blinkit": 85,
    "instamart": 95
-  }
+  },
+  "searchQuery": "raisins",
+  "packSize": "200 g"
  },
  {
   "id": "blueberries",
@@ -1032,7 +1183,12 @@
    "zepto": 299,
    "blinkit": 289,
    "instamart": 310
-  }
+  },
+  "searchQuery": "blueberries",
+  "packSize": "125 g",
+  "searchExclude": [
+   "dried"
+  ]
  },
  {
   "id": "strawberries",
@@ -1057,7 +1213,14 @@
    "zepto": 99,
    "blinkit": 95,
    "instamart": 110
-  }
+  },
+  "searchQuery": "strawberry",
+  "packSize": "200 g",
+  "searchExclude": [
+   "jam",
+   "crush",
+   "syrup"
+  ]
  },
  {
   "id": "dragon-fruit",
@@ -1083,7 +1246,9 @@
    "zepto": 89,
    "blinkit": 85,
    "instamart": 95
-  }
+  },
+  "searchQuery": "dragon fruit",
+  "packSize": "1 pc"
  },
  {
   "id": "coconut",
@@ -1111,7 +1276,9 @@
    "zepto": 55,
    "blinkit": 50,
    "instamart": 60
-  }
+  },
+  "searchQuery": "desiccated coconut",
+  "packSize": "100 g"
  },
  {
   "id": "egg",
@@ -1140,7 +1307,14 @@
    "zepto": 54,
    "blinkit": 52,
    "instamart": 58
-  }
+  },
+  "searchQuery": "eggs",
+  "packSize": "6 pc",
+  "searchExclude": [
+   "masala",
+   "noodles",
+   "eggless"
+  ]
  },
  {
   "id": "milk",
@@ -1169,7 +1343,13 @@
    "zepto": 28,
    "blinkit": 28,
    "instamart": 29
-  }
+  },
+  "searchQuery": "toned milk",
+  "packSize": "500 ml",
+  "searchExclude": [
+   "powder",
+   "condensed"
+  ]
  },
  {
   "id": "curd",
@@ -1198,7 +1378,12 @@
    "zepto": 40,
    "blinkit": 38,
    "instamart": 42
-  }
+  },
+  "searchQuery": "curd",
+  "packSize": "400 g",
+  "searchExclude": [
+   "rice"
+  ]
  },
  {
   "id": "paneer",
@@ -1225,7 +1410,13 @@
    "zepto": 95,
    "blinkit": 92,
    "instamart": 99
-  }
+  },
+  "searchQuery": "paneer",
+  "packSize": "200 g",
+  "searchExclude": [
+   "tikka",
+   "masala"
+  ]
  },
  {
   "id": "cheese-slice",
@@ -1252,7 +1443,9 @@
    "zepto": 150,
    "blinkit": 145,
    "instamart": 155
-  }
+  },
+  "searchQuery": "cheese slices",
+  "packSize": "10 pc"
  },
  {
   "id": "mozzarella",
@@ -1278,7 +1471,9 @@
    "zepto": 180,
    "blinkit": 170,
    "instamart": 190
-  }
+  },
+  "searchQuery": "mozzarella cheese",
+  "packSize": "200 g"
  },
  {
   "id": "butter",
@@ -1307,7 +1502,14 @@
    "zepto": 60,
    "blinkit": 58,
    "instamart": 62
-  }
+  },
+  "searchQuery": "butter salted",
+  "packSize": "100 g",
+  "searchExclude": [
+   "peanut",
+   "cookies",
+   "garlic"
+  ]
  },
  {
   "id": "cream",
@@ -1334,7 +1536,14 @@
    "zepto": 70,
    "blinkit": 68,
    "instamart": 72
-  }
+  },
+  "searchQuery": "fresh cream",
+  "packSize": "200 ml",
+  "searchExclude": [
+   "ice",
+   "sour",
+   "whipping"
+  ]
  },
  {
   "id": "greek-yogurt",
@@ -1361,7 +1570,9 @@
    "zepto": 199,
    "blinkit": 190,
    "instamart": 210
-  }
+  },
+  "searchQuery": "greek yogurt plain",
+  "packSize": "400 g"
  },
  {
   "id": "rice",
@@ -1391,7 +1602,13 @@
    "zepto": 70,
    "blinkit": 68,
    "instamart": 75
-  }
+  },
+  "searchQuery": "sona masoori rice",
+  "packSize": "1 kg",
+  "searchExclude": [
+   "poha",
+   "flakes"
+  ]
  },
  {
   "id": "poha",
@@ -1421,7 +1638,9 @@
    "zepto": 40,
    "blinkit": 38,
    "instamart": 44
-  }
+  },
+  "searchQuery": "poha thick",
+  "packSize": "500 g"
  },
  {
   "id": "oats",
@@ -1448,7 +1667,13 @@
    "zepto": 99,
    "blinkit": 95,
    "instamart": 105
-  }
+  },
+  "searchQuery": "rolled oats",
+  "packSize": "500 g",
+  "searchExclude": [
+   "masala",
+   "cookies"
+  ]
  },
  {
   "id": "bread",
@@ -1475,7 +1700,9 @@
    "zepto": 50,
    "blinkit": 48,
    "instamart": 55
-  }
+  },
+  "searchQuery": "brown bread",
+  "packSize": "400 g"
  },
  {
   "id": "sourdough",
@@ -1501,7 +1728,9 @@
    "zepto": 180,
    "blinkit": 175,
    "instamart": 189
-  }
+  },
+  "searchQuery": "sourdough bread",
+  "packSize": "400 g"
  },
  {
   "id": "pav",
@@ -1529,7 +1758,13 @@
    "zepto": 40,
    "blinkit": 38,
    "instamart": 42
-  }
+  },
+  "searchQuery": "pav",
+  "packSize": "6 pc",
+  "searchExclude": [
+   "bhaji",
+   "masala"
+  ]
  },
  {
   "id": "rava",
@@ -1559,7 +1794,13 @@
    "zepto": 40,
    "blinkit": 38,
    "instamart": 44
-  }
+  },
+  "searchQuery": "bombay rava sooji",
+  "packSize": "500 g",
+  "searchExclude": [
+   "idli",
+   "dosa"
+  ]
  },
  {
   "id": "vermicelli",
@@ -1588,7 +1829,9 @@
    "zepto": 55,
    "blinkit": 52,
    "instamart": 58
-  }
+  },
+  "searchQuery": "roasted vermicelli",
+  "packSize": "400 g"
  },
  {
   "id": "instant-noodles",
@@ -1615,7 +1858,12 @@
    "zepto": 60,
    "blinkit": 58,
    "instamart": 62
-  }
+  },
+  "searchQuery": "maggi masala noodles",
+  "packSize": "4 pc",
+  "searchExclude": [
+   "cup"
+  ]
  },
  {
   "id": "pasta",
@@ -1642,7 +1890,12 @@
    "zepto": 99,
    "blinkit": 95,
    "instamart": 105
-  }
+  },
+  "searchQuery": "penne pasta",
+  "packSize": "500 g",
+  "searchExclude": [
+   "sauce"
+  ]
  },
  {
   "id": "hakka-noodles",
@@ -1669,7 +1922,12 @@
    "zepto": 40,
    "blinkit": 38,
    "instamart": 42
-  }
+  },
+  "searchQuery": "hakka noodles",
+  "packSize": "150 g",
+  "searchExclude": [
+   "instant"
+  ]
  },
  {
   "id": "atta",
@@ -1698,7 +1956,12 @@
    "zepto": 60,
    "blinkit": 58,
    "instamart": 65
-  }
+  },
+  "searchQuery": "whole wheat atta",
+  "packSize": "1 kg",
+  "searchExclude": [
+   "multigrain"
+  ]
  },
  {
   "id": "wraps",
@@ -1725,7 +1988,12 @@
    "zepto": 90,
    "blinkit": 85,
    "instamart": 95
-  }
+  },
+  "searchQuery": "wheat wraps tortilla",
+  "packSize": "6 pc",
+  "searchExclude": [
+   "chips"
+  ]
  },
  {
   "id": "quinoa",
@@ -1750,7 +2018,9 @@
    "zepto": 249,
    "blinkit": 239,
    "instamart": 259
-  }
+  },
+  "searchQuery": "quinoa",
+  "packSize": "500 g"
  },
  {
   "id": "cornflakes",
@@ -1776,7 +2046,13 @@
    "zepto": 99,
    "blinkit": 95,
    "instamart": 105
-  }
+  },
+  "searchQuery": "corn flakes",
+  "packSize": "250 g",
+  "searchExclude": [
+   "chocolate",
+   "honey"
+  ]
  },
  {
   "id": "granola",
@@ -1801,7 +2077,12 @@
    "zepto": 299,
    "blinkit": 289,
    "instamart": 310
-  }
+  },
+  "searchQuery": "granola",
+  "packSize": "400 g",
+  "searchExclude": [
+   "bar"
+  ]
  },
  {
   "id": "sabudana",
@@ -1829,7 +2110,9 @@
    "zepto": 60,
    "blinkit": 58,
    "instamart": 65
-  }
+  },
+  "searchQuery": "sabudana",
+  "packSize": "500 g"
  },
  {
   "id": "dosa-batter",
@@ -1857,7 +2140,9 @@
    "zepto": 90,
    "blinkit": 88,
    "instamart": 95
-  }
+  },
+  "searchQuery": "idli dosa batter",
+  "packSize": "1 kg"
  },
  {
   "id": "puffed-rice",
@@ -1887,7 +2172,9 @@
    "zepto": 30,
    "blinkit": 28,
    "instamart": 32
-  }
+  },
+  "searchQuery": "puffed rice murmura",
+  "packSize": "200 g"
  },
  {
   "id": "couscous",
@@ -1913,7 +2200,9 @@
    "zepto": 220,
    "blinkit": 210,
    "instamart": 230
-  }
+  },
+  "searchQuery": "couscous",
+  "packSize": "500 g"
  },
  {
   "id": "moong-dal",
@@ -1942,7 +2231,13 @@
    "zepto": 80,
    "blinkit": 78,
    "instamart": 85
-  }
+  },
+  "searchQuery": "moong dal yellow",
+  "packSize": "500 g",
+  "searchExclude": [
+   "whole",
+   "green"
+  ]
  },
  {
   "id": "masoor-dal",
@@ -1970,7 +2265,13 @@
    "zepto": 70,
    "blinkit": 68,
    "instamart": 75
-  }
+  },
+  "searchQuery": "masoor dal",
+  "packSize": "500 g",
+  "searchExclude": [
+   "whole",
+   "black"
+  ]
  },
  {
   "id": "toor-dal",
@@ -1999,7 +2300,9 @@
    "zepto": 90,
    "blinkit": 88,
    "instamart": 95
-  }
+  },
+  "searchQuery": "toor dal",
+  "packSize": "500 g"
  },
  {
   "id": "chickpeas-can",
@@ -2028,7 +2331,9 @@
    "zepto": 120,
    "blinkit": 115,
    "instamart": 129
-  }
+  },
+  "searchQuery": "chickpeas canned",
+  "packSize": "400 g"
  },
  {
   "id": "rajma-can",
@@ -2055,7 +2360,9 @@
    "zepto": 115,
    "blinkit": 110,
    "instamart": 125
-  }
+  },
+  "searchQuery": "kidney beans canned",
+  "packSize": "400 g"
  },
  {
   "id": "baked-beans",
@@ -2080,7 +2387,9 @@
    "zepto": 99,
    "blinkit": 95,
    "instamart": 105
-  }
+  },
+  "searchQuery": "baked beans",
+  "packSize": "450 g"
  },
  {
   "id": "sprouts",
@@ -2108,7 +2417,9 @@
    "zepto": 30,
    "blinkit": 28,
    "instamart": 35
-  }
+  },
+  "searchQuery": "moong sprouts",
+  "packSize": "200 g"
  },
  {
   "id": "soya-chunks",
@@ -2136,7 +2447,12 @@
    "zepto": 50,
    "blinkit": 48,
    "instamart": 55
-  }
+  },
+  "searchQuery": "soya chunks",
+  "packSize": "200 g",
+  "searchExclude": [
+   "mini"
+  ]
  },
  {
   "id": "roasted-chana",
@@ -2165,7 +2481,9 @@
    "zepto": 45,
    "blinkit": 42,
    "instamart": 48
-  }
+  },
+  "searchQuery": "roasted chana",
+  "packSize": "200 g"
  },
  {
   "id": "peanuts",
@@ -2195,7 +2513,14 @@
    "zepto": 90,
    "blinkit": 85,
    "instamart": 95
-  }
+  },
+  "searchQuery": "roasted peanuts",
+  "packSize": "500 g",
+  "searchExclude": [
+   "masala",
+   "butter",
+   "chikki"
+  ]
  },
  {
   "id": "tofu",
@@ -2221,7 +2546,9 @@
    "zepto": 95,
    "blinkit": 90,
    "instamart": 99
-  }
+  },
+  "searchQuery": "tofu",
+  "packSize": "200 g"
  },
  {
   "id": "besan",
@@ -2250,7 +2577,13 @@
    "zepto": 60,
    "blinkit": 58,
    "instamart": 65
-  }
+  },
+  "searchQuery": "besan",
+  "packSize": "500 g",
+  "searchExclude": [
+   "laddu",
+   "ladoo"
+  ]
  },
  {
   "id": "sattu",
@@ -2276,7 +2609,9 @@
    "zepto": 90,
    "blinkit": 85,
    "instamart": 95
-  }
+  },
+  "searchQuery": "sattu",
+  "packSize": "500 g"
  },
  {
   "id": "salt",
@@ -2304,7 +2639,14 @@
    "zepto": 28,
    "blinkit": 27,
    "instamart": 30
-  }
+  },
+  "searchQuery": "iodised salt",
+  "packSize": "1 kg",
+  "searchExclude": [
+   "black",
+   "rock",
+   "pink"
+  ]
  },
  {
   "id": "sugar",
@@ -2332,7 +2674,15 @@
    "zepto": 50,
    "blinkit": 48,
    "instamart": 52
-  }
+  },
+  "searchQuery": "sugar",
+  "packSize": "1 kg",
+  "searchExclude": [
+   "free",
+   "brown",
+   "powder",
+   "cubes"
+  ]
  },
  {
   "id": "jaggery",
@@ -2361,7 +2711,12 @@
    "zepto": 55,
    "blinkit": 52,
    "instamart": 58
-  }
+  },
+  "searchQuery": "jaggery",
+  "packSize": "500 g",
+  "searchExclude": [
+   "powder"
+  ]
  },
  {
   "id": "honey",
@@ -2389,7 +2744,9 @@
    "zepto": 110,
    "blinkit": 105,
    "instamart": 115
-  }
+  },
+  "searchQuery": "honey",
+  "packSize": "250 g"
  },
  {
   "id": "turmeric",
@@ -2418,7 +2775,9 @@
    "zepto": 38,
    "blinkit": 36,
    "instamart": 40
-  }
+  },
+  "searchQuery": "turmeric powder",
+  "packSize": "100 g"
  },
  {
   "id": "chilli-powder",
@@ -2447,7 +2806,12 @@
    "zepto": 45,
    "blinkit": 42,
    "instamart": 48
-  }
+  },
+  "searchQuery": "red chilli powder",
+  "packSize": "100 g",
+  "searchExclude": [
+   "kashmiri"
+  ]
  },
  {
   "id": "cumin",
@@ -2476,7 +2840,9 @@
    "zepto": 55,
    "blinkit": 52,
    "instamart": 58
-  }
+  },
+  "searchQuery": "cumin seeds jeera",
+  "packSize": "100 g"
  },
  {
   "id": "mustard-seeds",
@@ -2505,7 +2871,12 @@
    "zepto": 25,
    "blinkit": 24,
    "instamart": 28
-  }
+  },
+  "searchQuery": "mustard seeds",
+  "packSize": "100 g",
+  "searchExclude": [
+   "oil"
+  ]
  },
  {
   "id": "garam-masala",
@@ -2530,7 +2901,9 @@
    "zepto": 70,
    "blinkit": 68,
    "instamart": 75
-  }
+  },
+  "searchQuery": "garam masala",
+  "packSize": "100 g"
  },
  {
   "id": "coriander-powder",
@@ -2558,7 +2931,9 @@
    "zepto": 35,
    "blinkit": 32,
    "instamart": 38
-  }
+  },
+  "searchQuery": "coriander powder",
+  "packSize": "100 g"
  },
  {
   "id": "chaat-masala",
@@ -2584,7 +2959,9 @@
    "zepto": 60,
    "blinkit": 58,
    "instamart": 62
-  }
+  },
+  "searchQuery": "chaat masala",
+  "packSize": "100 g"
  },
  {
   "id": "pepper",
@@ -2613,7 +2990,9 @@
    "zepto": 90,
    "blinkit": 88,
    "instamart": 95
-  }
+  },
+  "searchQuery": "black pepper powder",
+  "packSize": "100 g"
  },
  {
   "id": "oregano",
@@ -2640,7 +3019,9 @@
    "zepto": 45,
    "blinkit": 42,
    "instamart": 48
-  }
+  },
+  "searchQuery": "oregano seasoning",
+  "packSize": "25 g"
  },
  {
   "id": "hing",
@@ -2669,7 +3050,9 @@
    "zepto": 60,
    "blinkit": 58,
    "instamart": 65
-  }
+  },
+  "searchQuery": "hing asafoetida",
+  "packSize": "50 g"
  },
  {
   "id": "pav-bhaji-masala",
@@ -2695,7 +3078,9 @@
    "zepto": 75,
    "blinkit": 72,
    "instamart": 78
-  }
+  },
+  "searchQuery": "pav bhaji masala",
+  "packSize": "100 g"
  },
  {
   "id": "sambar-powder",
@@ -2722,7 +3107,9 @@
    "zepto": 60,
    "blinkit": 58,
    "instamart": 65
-  }
+  },
+  "searchQuery": "sambar powder",
+  "packSize": "100 g"
  },
  {
   "id": "kasuri-methi",
@@ -2748,7 +3135,9 @@
    "zepto": 30,
    "blinkit": 28,
    "instamart": 32
-  }
+  },
+  "searchQuery": "kasuri methi",
+  "packSize": "25 g"
  },
  {
   "id": "soy-sauce",
@@ -2774,7 +3163,9 @@
    "zepto": 60,
    "blinkit": 58,
    "instamart": 65
-  }
+  },
+  "searchQuery": "dark soy sauce",
+  "packSize": "200 ml"
  },
  {
   "id": "ketchup",
@@ -2801,7 +3192,9 @@
    "zepto": 105,
    "blinkit": 99,
    "instamart": 110
-  }
+  },
+  "searchQuery": "tomato ketchup",
+  "packSize": "450 g"
  },
  {
   "id": "schezwan",
@@ -2827,7 +3220,12 @@
    "zepto": 99,
    "blinkit": 95,
    "instamart": 105
-  }
+  },
+  "searchQuery": "schezwan chutney",
+  "packSize": "250 g",
+  "searchExclude": [
+   "noodles"
+  ]
  },
  {
   "id": "mayo",
@@ -2854,7 +3252,9 @@
    "zepto": 99,
    "blinkit": 95,
    "instamart": 105
-  }
+  },
+  "searchQuery": "eggless mayonnaise",
+  "packSize": "250 g"
  },
  {
   "id": "pickle",
@@ -2883,7 +3283,9 @@
    "zepto": 140,
    "blinkit": 135,
    "instamart": 145
-  }
+  },
+  "searchQuery": "mango pickle",
+  "packSize": "400 g"
  },
  {
   "id": "pasta-sauce",
@@ -2910,7 +3312,9 @@
    "zepto": 199,
    "blinkit": 190,
    "instamart": 210
-  }
+  },
+  "searchQuery": "pasta sauce arrabbiata",
+  "packSize": "400 g"
  },
  {
   "id": "coffee",
@@ -2937,7 +3341,9 @@
    "zepto": 175,
    "blinkit": 170,
    "instamart": 180
-  }
+  },
+  "searchQuery": "instant coffee",
+  "packSize": "50 g"
  },
  {
   "id": "tea",
@@ -2965,7 +3371,13 @@
    "zepto": 130,
    "blinkit": 125,
    "instamart": 135
-  }
+  },
+  "searchQuery": "tea leaves",
+  "packSize": "250 g",
+  "searchExclude": [
+   "bags",
+   "green"
+  ]
  },
  {
   "id": "sesame",
@@ -2992,7 +3404,9 @@
    "zepto": 40,
    "blinkit": 38,
    "instamart": 44
-  }
+  },
+  "searchQuery": "white sesame seeds",
+  "packSize": "100 g"
  },
  {
   "id": "chia",
@@ -3018,7 +3432,9 @@
    "zepto": 120,
    "blinkit": 115,
    "instamart": 125
-  }
+  },
+  "searchQuery": "chia seeds",
+  "packSize": "100 g"
  },
  {
   "id": "coconut-milk",
@@ -3045,7 +3461,12 @@
    "zepto": 90,
    "blinkit": 88,
    "instamart": 95
-  }
+  },
+  "searchQuery": "coconut milk",
+  "packSize": "200 ml",
+  "searchExclude": [
+   "powder"
+  ]
  },
  {
   "id": "peanut-butter",
@@ -3071,7 +3492,9 @@
    "zepto": 180,
    "blinkit": 175,
    "instamart": 189
-  }
+  },
+  "searchQuery": "peanut butter",
+  "packSize": "350 g"
  },
  {
   "id": "makhana",
@@ -3098,7 +3521,13 @@
    "zepto": 120,
    "blinkit": 115,
    "instamart": 125
-  }
+  },
+  "searchQuery": "makhana",
+  "packSize": "100 g",
+  "searchExclude": [
+   "roasted",
+   "flavoured"
+  ]
  },
  {
   "id": "almonds",
@@ -3124,7 +3553,13 @@
    "zepto": 230,
    "blinkit": 220,
    "instamart": 240
-  }
+  },
+  "searchQuery": "almonds",
+  "packSize": "200 g",
+  "searchExclude": [
+   "milk",
+   "oil"
+  ]
  },
  {
   "id": "cashews",
@@ -3151,7 +3586,13 @@
    "zepto": 260,
    "blinkit": 250,
    "instamart": 270
-  }
+  },
+  "searchQuery": "cashews",
+  "packSize": "200 g",
+  "searchExclude": [
+   "roasted",
+   "salted"
+  ]
  },
  {
   "id": "sev",
@@ -3179,7 +3620,9 @@
    "zepto": 55,
    "blinkit": 52,
    "instamart": 58
-  }
+  },
+  "searchQuery": "sev namkeen",
+  "packSize": "200 g"
  },
  {
   "id": "nachos",
@@ -3205,7 +3648,9 @@
    "zepto": 99,
    "blinkit": 95,
    "instamart": 105
-  }
+  },
+  "searchQuery": "nachos tortilla chips",
+  "packSize": "150 g"
  },
  {
   "id": "dark-chocolate",
@@ -3231,7 +3676,9 @@
    "zepto": 180,
    "blinkit": 175,
    "instamart": 189
-  }
+  },
+  "searchQuery": "dark chocolate 70",
+  "packSize": "100 g"
  },
  {
   "id": "hummus",
@@ -3256,7 +3703,9 @@
    "zepto": 199,
    "blinkit": 190,
    "instamart": 210
-  }
+  },
+  "searchQuery": "hummus",
+  "packSize": "200 g"
  },
  {
   "id": "tuna",
@@ -3282,7 +3731,9 @@
    "zepto": 249,
    "blinkit": 239,
    "instamart": 259
-  }
+  },
+  "searchQuery": "tuna chunks in brine",
+  "packSize": "180 g"
  },
  {
   "id": "chicken",
@@ -3310,7 +3761,13 @@
    "zepto": 259,
    "blinkit": 249,
    "instamart": 269
-  }
+  },
+  "searchQuery": "chicken breast boneless",
+  "packSize": "450 g",
+  "searchExclude": [
+   "sausage",
+   "nuggets"
+  ]
  },
  {
   "id": "sausage",
@@ -3336,7 +3793,9 @@
    "zepto": 160,
    "blinkit": 155,
    "instamart": 165
-  }
+  },
+  "searchQuery": "chicken sausages",
+  "packSize": "250 g"
  },
  {
   "id": "basa",
@@ -3364,7 +3823,9 @@
    "zepto": 249,
    "blinkit": 239,
    "instamart": 259
-  }
+  },
+  "searchQuery": "basa fillet",
+  "packSize": "300 g"
  },
  {
   "id": "salmon",
@@ -3389,7 +3850,9 @@
    "zepto": 499,
    "blinkit": 489,
    "instamart": 520
-  }
+  },
+  "searchQuery": "smoked salmon",
+  "packSize": "100 g"
  },
  {
   "id": "oil",
@@ -3420,7 +3883,12 @@
    "zepto": 165,
    "blinkit": 160,
    "instamart": 170
-  }
+  },
+  "searchQuery": "sunflower oil",
+  "packSize": "1 l",
+  "searchExclude": [
+   "olive"
+  ]
  },
  {
   "id": "ghee",
@@ -3449,7 +3917,9 @@
    "zepto": 150,
    "blinkit": 145,
    "instamart": 155
-  }
+  },
+  "searchQuery": "cow ghee",
+  "packSize": "200 g"
  },
  {
   "id": "olive-oil",
@@ -3475,6 +3945,8 @@
    "zepto": 399,
    "blinkit": 389,
    "instamart": 410
-  }
+  },
+  "searchQuery": "extra virgin olive oil",
+  "packSize": "250 ml"
  }
 ]

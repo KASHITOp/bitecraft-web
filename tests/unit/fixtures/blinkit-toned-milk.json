@@ -1,0 +1,614 @@
+{
+ "status": "success",
+ "request_id": "fixture",
+ "credits_remaining": 98,
+ "data": {
+  "query": "toned milk",
+  "platform": "BlinkIt",
+  "lat": 12.9021,
+  "lon": 77.6639,
+  "total_results": 24,
+  "products": [
+   {
+    "id": "309894",
+    "name": "Toned Milk",
+    "brand": "Nandini Goodlife",
+    "available": true,
+    "images": [
+     "https://cdn.grofers.com/da/cms-assets/cms/product/b43868ea-55de-4c55-992e-10522c85e260.jpg"
+    ],
+    "mrp": 36,
+    "offer_price": 36,
+    "quantity": "500 ml",
+    "deeplink": "https://blinkit.com/prn/x/prid/309894",
+    "rating": 4.699999809265137,
+    "rating_count": 46612,
+    "inventory": 50,
+    "is_ad": false,
+    "rank": 1,
+    "platform": {
+     "name": "BlinkIt",
+     "sla": "8 mins",
+     "open": true,
+     "icon": "https://d2chhaxkq6tvay.cloudfront.net/platforms/blinkit.webp"
+    },
+    "store_id": 45342
+   },
+   {
+    "id": "485113",
+    "name": "Taaza Toned Milk - Pack of 2",
+    "brand": "Amul",
+    "available": true,
+    "images": [
+     "https://cdn.grofers.com/da/cms-assets/cms/product/69b914d5-28d7-45d3-9779-4d181354676f.jpg"
+    ],
+    "mrp": 34,
+    "offer_price": 34,
+    "quantity": "2 x 200 ml",
+    "deeplink": "https://blinkit.com/prn/x/prid/485113",
+    "rating": 4.699999809265137,
+    "rating_count": 2,
+    "inventory": 50,
+    "is_ad": false,
+    "rank": 2,
+    "platform": {
+     "name": "BlinkIt",
+     "sla": "8 mins",
+     "open": true,
+     "icon": "https://d2chhaxkq6tvay.cloudfront.net/platforms/blinkit.webp"
+    },
+    "store_id": 45342
+   },
+   {
+    "id": "37083",
+    "name": "Toned Milk",
+    "brand": "Nandini",
+    "available": true,
+    "images": [
+     "https://cdn.grofers.com/da/cms-assets/cms/product/5ca91eb1-33d5-4ada-95ed-0e706ac7149e.jpg"
+    ],
+    "mrp": 24,
+    "offer_price": 24,
+    "quantity": "500 ml",
+    "deeplink": "https://blinkit.com/prn/x/prid/37083",
+    "rating": 4.5,
+    "rating_count": 13,
+    "inventory": 12,
+    "is_ad": false,
+    "rank": 3,
+    "platform": {
+     "name": "BlinkIt",
+     "sla": "8 mins",
+     "open": true,
+     "icon": "https://d2chhaxkq6tvay.cloudfront.net/platforms/blinkit.webp"
+    },
+    "store_id": 45342
+   },
+   {
+    "id": "309921",
+    "name": "Shubham Pasteurised Standardized Toned Milk",
+    "brand": "Nandini",
+    "available": true,
+    "images": [
+     "https://cdn.grofers.com/da/cms-assets/cms/product/a39c6389-fcd0-40ae-a7ff-2fd417883ab0.jpg"
+    ],
+    "mrp": 27,
+    "offer_price": 27,
+    "quantity": "500 ml",
+    "deeplink": "https://blinkit.com/prn/x/prid/309921",
+    "rating": 4.599999904632568,
+    "rating_count": 15,
+    "inventory": 12,
+    "is_ad": false,
+    "rank": 4,
+    "platform": {
+     "name": "BlinkIt",
+     "sla": "8 mins",
+     "open": true,
+     "icon": "https://d2chhaxkq6tvay.cloudfront.net/platforms/blinkit.webp"
+    },
+    "store_id": 45342
+   },
+   {
+    "id": "176",
+    "name": "Taaza Homogenised Toned Milk",
+    "brand": "Amul",
+    "available": true,
+    "images": [
+     "https://cdn.grofers.com/da/cms-assets/cms/product/ae18682e-7032-4201-ab10-3d5c0e453044.jpg"
+    ],
+    "mrp": 77,
+    "offer_price": 77,
+    "quantity": "1 ltr",
+    "deeplink": "https://blinkit.com/prn/x/prid/176",
+    "rating": 4.699999809265137,
+    "rating_count": 17,
+    "inventory": 50,
+    "is_ad": false,
+    "rank": 5,
+    "platform": {
+     "name": "BlinkIt",
+     "sla": "8 mins",
+     "open": true,
+     "icon": "https://d2chhaxkq6tvay.cloudfront.net/platforms/blinkit.webp"
+    },
+    "store_id": 45342
+   },
+   {
+    "id": "19512",
+    "name": "Taaza Toned Milk",
+    "brand": "Amul",
+    "available": true,
+    "images": [
+     "https://cdn.grofers.com/da/cms-assets/cms/product/a52437f3-c302-49dd-a426-95252501d2d6.jpg"
+    ],
+    "mrp": 29,
+    "offer_price": 29,
+    "quantity": "500 ml",
+    "deeplink": "https://blinkit.com/prn/x/prid/19512",
+    "rating": 4.599999904632568,
+    "rating_count": 106,
+    "inventory": 8,
+    "is_ad": false,
+    "rank": 6,
+    "platform": {
+     "name": "BlinkIt",
+     "sla": "8 mins",
+     "open": true,
+     "icon": "https://d2chhaxkq6tvay.cloudfront.net/platforms/blinkit.webp"
+    },
+    "store_id": 45342
+   },
+   {
+    "id": "542051",
+    "name": "A2 Cow Milk (Pasteurized)",
+    "brand": "Akshayakalpa Organic",
+    "available": true,
+    "images": [
+     "https://cdn.grofers.com/da/cms-assets/cms/product/7172bbb9-b5e9-4755-9ead-321749401656.jpg"
+    ],
+    "mrp": 50,
+    "offer_price": 50,
+    "quantity": "500 ml",
+    "deeplink": "https://blinkit.com/prn/x/prid/542051",
+    "rating": 4.599999904632568,
+    "rating_count": 9203,
+    "inventory": 2,
+    "is_ad": false,
+    "rank": 7,
+    "platform": {
+     "name": "BlinkIt",
+     "sla": "8 mins",
+     "open": true,
+     "icon": "https://d2chhaxkq6tvay.cloudfront.net/platforms/blinkit.webp"
+    },
+    "store_id": 45342
+   },
+   {
+    "id": "34778",
+    "name": "Moti Toned Milk (90 Days Shelf Life)",
+    "brand": "Amul",
+    "available": true,
+    "images": [
+     "https://cdn.grofers.com/da/cms-assets/cms/product/818b8e9c-739f-407d-96c0-1bd6da2b782c.jpg"
+    ],
+    "mrp": 30,
+    "offer_price": 30,
+    "quantity": "450 ml",
+    "deeplink": "https://blinkit.com/prn/x/prid/34778",
+    "rating": 4.5,
+    "rating_count": 18,
+    "inventory": 37,
+    "is_ad": false,
+    "rank": 8,
+    "platform": {
+     "name": "BlinkIt",
+     "sla": "8 mins",
+     "open": true,
+     "icon": "https://d2chhaxkq6tvay.cloudfront.net/platforms/blinkit.webp"
+    },
+    "store_id": 45342
+   },
+   {
+    "id": "478882",
+    "name": "Farm Fresh Cow Milk",
+    "brand": "Akshayakalpa Organic",
+    "available": true,
+    "images": [
+     "https://cdn.grofers.com/da/cms-assets/cms/product/b6c9fb33-bbc1-4897-be99-ab5715645a5d.jpg"
+    ],
+    "mrp": 50,
+    "offer_price": 50,
+    "quantity": "500 ml",
+    "deeplink": "https://blinkit.com/prn/x/prid/478882",
+    "rating": 4.699999809265137,
+    "rating_count": 2227,
+    "inventory": 3,
+    "is_ad": false,
+    "rank": 9,
+    "platform": {
+     "name": "BlinkIt",
+     "sla": "8 mins",
+     "open": true,
+     "icon": "https://d2chhaxkq6tvay.cloudfront.net/platforms/blinkit.webp"
+    },
+    "store_id": 45342
+   },
+   {
+    "id": "179137",
+    "name": "Special Long Life Milk (90 Days Shelf Life)",
+    "brand": "Heritage",
+    "available": true,
+    "images": [
+     "https://cdn.grofers.com/da/cms-assets/cms/product/ebbdba2f-ce12-43ce-a55a-cccea32610f4.jpg"
+    ],
+    "mrp": 34,
+    "offer_price": 33,
+    "quantity": "450 ml",
+    "deeplink": "https://blinkit.com/prn/x/prid/179137",
+    "rating": 4.599999904632568,
+    "rating_count": 32401,
+    "inventory": 13,
+    "is_ad": false,
+    "rank": 10,
+    "platform": {
+     "name": "BlinkIt",
+     "sla": "8 mins",
+     "open": true,
+     "icon": "https://d2chhaxkq6tvay.cloudfront.net/platforms/blinkit.webp"
+    },
+    "store_id": 45342
+   },
+   {
+    "id": "281456",
+    "name": "Toned Milk",
+    "brand": "Arokya",
+    "available": true,
+    "images": [
+     "https://cdn.grofers.com/da/cms-assets/cms/product/9e524796-126f-4427-8005-b0fee5fe4029.png"
+    ],
+    "mrp": 27,
+    "offer_price": 27,
+    "quantity": "500 ml",
+    "deeplink": "https://blinkit.com/prn/x/prid/281456",
+    "rating": 4.599999904632568,
+    "rating_count": 27682,
+    "inventory": 2,
+    "is_ad": false,
+    "rank": 11,
+    "platform": {
+     "name": "BlinkIt",
+     "sla": "8 mins",
+     "open": true,
+     "icon": "https://d2chhaxkq6tvay.cloudfront.net/platforms/blinkit.webp"
+    },
+    "store_id": 45342
+   },
+   {
+    "id": "678441",
+    "name": "Toned Milk",
+    "brand": "Sids Farm",
+    "available": true,
+    "images": [
+     "https://cdn.grofers.com/da/cms-assets/cms/product/435a3e1d-1b97-4ba9-89cf-e0f5a4f5df78.jpg"
+    ],
+    "mrp": 38,
+    "offer_price": 38,
+    "quantity": "500 ml",
+    "deeplink": "https://blinkit.com/prn/x/prid/678441",
+    "rating": 3.799999952316284,
+    "rating_count": 4615,
+    "inventory": 2,
+    "is_ad": false,
+    "rank": 12,
+    "platform": {
+     "name": "BlinkIt",
+     "sla": "8 mins",
+     "open": true,
+     "icon": "https://d2chhaxkq6tvay.cloudfront.net/platforms/blinkit.webp"
+    },
+    "store_id": 45342
+   },
+   {
+    "id": "734812",
+    "name": "Nourish+ Protein Toned Milk",
+    "brand": "Heritage",
+    "available": true,
+    "images": [
+     "https://cdn.grofers.com/da/cms-assets/cms/product/9219fc90-d824-4f1e-b151-bc48754a4476.jpg"
+    ],
+    "mrp": 30,
+    "offer_price": 29,
+    "quantity": "500 ml",
+    "deeplink": "https://blinkit.com/prn/x/prid/734812",
+    "rating": 4.400000095367432,
+    "rating_count": 1703,
+    "inventory": 3,
+    "is_ad": false,
+    "rank": 13,
+    "platform": {
+     "name": "BlinkIt",
+     "sla": "8 mins",
+     "open": true,
+     "icon": "https://d2chhaxkq6tvay.cloudfront.net/platforms/blinkit.webp"
+    },
+    "store_id": 45342
+   },
+   {
+    "id": "516948",
+    "name": "Toned Milk",
+    "brand": "Milky Mist",
+    "available": true,
+    "images": [
+     "https://cdn.grofers.com/da/cms-assets/cms/product/1a556753-51bd-4ae0-9c89-e77c2efd7d1b.jpg"
+    ],
+    "mrp": 95,
+    "offer_price": 95,
+    "quantity": "1 ltr",
+    "deeplink": "https://blinkit.com/prn/x/prid/516948",
+    "rating": 4.5,
+    "rating_count": 912,
+    "inventory": 3,
+    "is_ad": false,
+    "rank": 14,
+    "platform": {
+     "name": "BlinkIt",
+     "sla": "8 mins",
+     "open": true,
+     "icon": "https://d2chhaxkq6tvay.cloudfront.net/platforms/blinkit.webp"
+    },
+    "store_id": 45342
+   },
+   {
+    "id": "32685",
+    "name": "Toned Milk",
+    "brand": "Mother Dairy",
+    "available": true,
+    "images": [
+     "https://cdn.grofers.com/da/cms-assets/cms/product/127e936a-314b-4d45-b6cb-9b98c7dc1858.jpg"
+    ],
+    "mrp": 77,
+    "offer_price": 77,
+    "quantity": "1 ltr",
+    "deeplink": "https://blinkit.com/prn/x/prid/32685",
+    "rating": 4.599999904632568,
+    "rating_count": 11639,
+    "inventory": 3,
+    "is_ad": false,
+    "rank": 15,
+    "platform": {
+     "name": "BlinkIt",
+     "sla": "8 mins",
+     "open": true,
+     "icon": "https://d2chhaxkq6tvay.cloudfront.net/platforms/blinkit.webp"
+    },
+    "store_id": 45342
+   },
+   {
+    "id": "516949",
+    "name": "Double Toned Milk",
+    "brand": "Milky Mist",
+    "available": true,
+    "images": [
+     "https://cdn.grofers.com/da/cms-assets/cms/product/cf6932e9-1169-468e-b01a-f3bf97cee9dc.jpg"
+    ],
+    "mrp": 85,
+    "offer_price": 85,
+    "quantity": "1 ltr",
+    "deeplink": "https://blinkit.com/prn/x/prid/516949",
+    "rating": 4.400000095367432,
+    "rating_count": 575,
+    "inventory": 3,
+    "is_ad": false,
+    "rank": 16,
+    "platform": {
+     "name": "BlinkIt",
+     "sla": "8 mins",
+     "open": true,
+     "icon": "https://d2chhaxkq6tvay.cloudfront.net/platforms/blinkit.webp"
+    },
+    "store_id": 45342
+   },
+   {
+    "id": "516951",
+    "name": "UHT Sterilized Lactose Free Toned Milk",
+    "brand": "Milky Mist",
+    "available": true,
+    "images": [
+     "https://cdn.grofers.com/da/cms-assets/cms/product/2aadfdc6-c8a2-46df-8080-86603126b1e7.jpg"
+    ],
+    "mrp": 40,
+    "offer_price": 34,
+    "quantity": "250 ml",
+    "deeplink": "https://blinkit.com/prn/x/prid/516951",
+    "rating": 4.400000095367432,
+    "rating_count": 881,
+    "inventory": 2,
+    "is_ad": false,
+    "rank": 17,
+    "platform": {
+     "name": "BlinkIt",
+     "sla": "8 mins",
+     "open": true,
+     "icon": "https://d2chhaxkq6tvay.cloudfront.net/platforms/blinkit.webp"
+    },
+    "store_id": 45342
+   },
+   {
+    "id": "405568",
+    "name": "Toned Milk - Pack of 2",
+    "brand": "Nestle a+",
+    "available": true,
+    "images": [
+     "https://cdn.grofers.com/da/cms-assets/cms/product/68c0654c-ae93-40bf-a74b-97bef5f38054.jpg"
+    ],
+    "mrp": 224,
+    "offer_price": 209,
+    "quantity": "2 x 1 ltr",
+    "deeplink": "https://blinkit.com/prn/x/prid/405568",
+    "rating": 4.199999809265137,
+    "rating_count": 7094,
+    "inventory": 1,
+    "is_ad": false,
+    "rank": 18,
+    "platform": {
+     "name": "BlinkIt",
+     "sla": "8 mins",
+     "open": true,
+     "icon": "https://d2chhaxkq6tvay.cloudfront.net/platforms/blinkit.webp"
+    },
+    "store_id": 45342
+   },
+   {
+    "id": "207766",
+    "name": "FIT Life Homogenized Double Toned Milk (450 ml)",
+    "brand": "Mother Dairy",
+    "available": true,
+    "images": [
+     "https://cdn.grofers.com/da/cms-assets/cms/product/d00d63bf-2ea8-4f2a-8abc-02c4d78e7691.jpg"
+    ],
+    "mrp": 30,
+    "offer_price": 30,
+    "quantity": "400 ml",
+    "deeplink": "https://blinkit.com/prn/x/prid/207766",
+    "rating": 4.5,
+    "rating_count": 25058,
+    "inventory": 1,
+    "is_ad": false,
+    "rank": 19,
+    "platform": {
+     "name": "BlinkIt",
+     "sla": "8 mins",
+     "open": true,
+     "icon": "https://d2chhaxkq6tvay.cloudfront.net/platforms/blinkit.webp"
+    },
+    "store_id": 45342
+   },
+   {
+    "id": "359299",
+    "name": "Special Toned Milk",
+    "brand": "Nandini",
+    "available": true,
+    "images": [
+     "https://cdn.grofers.com/da/cms-assets/cms/product/a7625d83-fc77-4989-ba24-893efecabedb.jpg"
+    ],
+    "mrp": 27,
+    "offer_price": 27,
+    "quantity": "500 ml",
+    "deeplink": "https://blinkit.com/prn/x/prid/359299",
+    "rating": 4.599999904632568,
+    "rating_count": 3289,
+    "inventory": 2,
+    "is_ad": false,
+    "rank": 20,
+    "platform": {
+     "name": "BlinkIt",
+     "sla": "8 mins",
+     "open": true,
+     "icon": "https://d2chhaxkq6tvay.cloudfront.net/platforms/blinkit.webp"
+    },
+    "store_id": 45342
+   },
+   {
+    "id": "12872",
+    "name": "Gold Full Cream Milk",
+    "brand": "Amul",
+    "available": true,
+    "images": [
+     "https://cdn.grofers.com/da/cms-assets/cms/product/2c4851c4-0f04-430a-9b46-d796d7798713.jpg"
+    ],
+    "mrp": 34,
+    "offer_price": 34,
+    "quantity": "500 ml",
+    "deeplink": "https://blinkit.com/prn/x/prid/12872",
+    "rating": 4.699999809265137,
+    "rating_count": 177,
+    "inventory": 12,
+    "is_ad": false,
+    "rank": 21,
+    "platform": {
+     "name": "BlinkIt",
+     "sla": "8 mins",
+     "open": true,
+     "icon": "https://d2chhaxkq6tvay.cloudfront.net/platforms/blinkit.webp"
+    },
+    "store_id": 45342
+   },
+   {
+    "id": "206314",
+    "name": "Lactose Free Milk",
+    "brand": "Amul",
+    "available": true,
+    "images": [
+     "https://cdn.grofers.com/da/cms-assets/cms/product/36c02eee-a674-4019-af02-de2936e56c8f.jpg"
+    ],
+    "mrp": 26,
+    "offer_price": 26,
+    "quantity": "250 ml",
+    "deeplink": "https://blinkit.com/prn/x/prid/206314",
+    "rating": 4.599999904632568,
+    "rating_count": 96635,
+    "inventory": 50,
+    "is_ad": false,
+    "rank": 22,
+    "platform": {
+     "name": "BlinkIt",
+     "sla": "8 mins",
+     "open": true,
+     "icon": "https://d2chhaxkq6tvay.cloudfront.net/platforms/blinkit.webp"
+    },
+    "store_id": 45342
+   },
+   {
+    "id": "177181",
+    "name": "Slim 'n' Trim Skimmed Milk (Zero Cholesterol)",
+    "brand": "Amul",
+    "available": true,
+    "images": [
+     "https://cdn.grofers.com/da/cms-assets/cms/product/64a54056-72af-4209-8780-ebc80e7da45d.jpg"
+    ],
+    "mrp": 85,
+    "offer_price": 85,
+    "quantity": "1 ltr",
+    "deeplink": "https://blinkit.com/prn/x/prid/177181",
+    "rating": 4.599999904632568,
+    "rating_count": 27053,
+    "inventory": 21,
+    "is_ad": false,
+    "rank": 23,
+    "platform": {
+     "name": "BlinkIt",
+     "sla": "8 mins",
+     "open": true,
+     "icon": "https://d2chhaxkq6tvay.cloudfront.net/platforms/blinkit.webp"
+    },
+    "store_id": 45342
+   },
+   {
+    "id": "74690",
+    "name": "Slim Skimmed Milk",
+    "brand": "Nestle a+",
+    "available": true,
+    "images": [
+     "https://cdn.grofers.com/da/cms-assets/cms/product/b9c2b688-b7f1-4d65-91e9-2d583ceaa262.jpg"
+    ],
+    "mrp": 99,
+    "offer_price": 99,
+    "quantity": "1 ltr",
+    "deeplink": "https://blinkit.com/prn/x/prid/74690",
+    "rating": 4.300000190734863,
+    "rating_count": 7483,
+    "inventory": 10,
+    "is_ad": false,
+    "rank": 24,
+    "platform": {
+     "name": "BlinkIt",
+     "sla": "8 mins",
+     "open": true,
+     "icon": "https://d2chhaxkq6tvay.cloudfront.net/platforms/blinkit.webp"
+    },
+    "store_id": 45342
+   }
+  ]
+ }
+}

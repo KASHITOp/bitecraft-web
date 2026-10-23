@@ -49,6 +49,12 @@ export interface Ingredient {
   nutrition: Macros;
   pack: { size: number; label: string };
   prices: Record<Store, number>;
+  /** Query sent to the quick-commerce search, e.g. "toned milk". */
+  searchQuery: string;
+  /** Pack we'd normally buy, e.g. "500 ml" or "1 kg"; used to pick the closest-sized product. */
+  packSize: string;
+  /** Words that mean the search hit is the wrong product (e.g. "spring" for onion). */
+  searchExclude?: string[];
 }
 
 export interface RecipeIngredient {
