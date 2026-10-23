@@ -259,7 +259,7 @@ test("Check live prices with no QCAPI_KEY falls back to labelled sample prices, 
   await expect(page.getByTestId("store-totals").locator("[data-cheapest]")).toHaveCount(3);
   const body = await page.locator("main").innerText();
   // (pack sizes like "500 g" are fine; error words and HTTP status lines are not)
-  expect(body).not.toMatch(/error|exception|undefined|status d{3}|50[0-4](?! ?(g|ml|gm))/i);
+  expect(body).not.toMatch(/error|exception|undefined|status \d{3}|\b50[0-4]\b(?! ?(g|ml|gm)\b)/i);
 });
 
 test("area can be set in More and is kept", async ({ page }) => {
