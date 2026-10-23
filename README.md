@@ -9,7 +9,7 @@ A mobile-first PWA for students in Indian PGs and hostels: a kettle, maybe an in
 - **Pantry** with expiry warnings, **Shopping list**, **Saved**.
 - **Fridge Raid Chef**: type what's lying around and get a structured recipe from Gemini, grounded in the library. Falls back to the local matching engine when there's no key, the call fails, or you're offline.
 - **Planner**: a day plan that fits your kcal and protein targets, budget and gear. Shuffle, lock, mess days, a week of shopping in one tap.
-- **Quick Mart**: basket totals on Zepto, Blinkit and Instamart side by side. **These are sample prices from Oct 2026, not live.** None of these apps has a public price API.
+- **Quick Mart**: tap **Check live prices** for real prices on Zepto, Blinkit, Instamart and Flipkart Minutes near you (via [QuickCommerce API](https://quickcommerceapi.com)): the matched product per store, pack size, ₹/kg, LOWEST badge, basket total per store and a "Buy on <store>" link. Without a key, or if the API fails, it shows clearly labelled sample prices from Oct 2026.
 
 All user data stays in `localStorage` on the phone. No login, no database.
 
@@ -49,11 +49,30 @@ The chatbot works without any key: it answers from the local matching engine and
 
 The key is only read in `app/api/chef/route.web.ts` on the server. It's sent to Google in a request header and never reaches the browser. The route is rate-limited to 20 requests per 10 minutes per IP (in memory, so per server instance). Model output must match a zod schema and must not use gear the student doesn't own. Anything else falls back to library matches; the chat never shows a raw error.
 
+## Live prices: QCAPI_KEY and QCAPI_DAILY_LIMIT
+
+Add to `web/.env.local`:
+
+```
+QCAPI_KEY=your-quickcommerceapi-key
+QCAPI_DAILY_LIMIT=300
+```
+
+- **Each store search costs 1 credit.** A basket of 5 ingredients across 4 stores is 20 credits.
+- **Only on a tap.** Prices are fetched only when someone taps "Check live prices", never on page load.
+- **Two caches.** Results are cached for 6 hours on the server (keyed by search + store + location rounded to 2 decimals) and on the phone. Refresh re-fetches only results older than 30 minutes.
+- **Daily cap.** `QCAPI_DAILY_LIMIT` (default 300) caps credits per day (India time). Past it, the app shows the last prices it has with a note.
+- **Logging.** Every request logs `[prices] … N credit(s) used this request, X/300 today`. It also logs a line when a store returns nothing usable.
+- **Where they live.** The cache and the daily counter are in the server's memory. On Vercel that's per running instance, so treat the limit as a safety net, not an exact meter. Check real usage free at `GET https://api.quickcommerceapi.com/v1/credits`.
+- **Key stays server-side.** It's only read in `lib/qc-server.ts`; the browser and the APK call `/api/prices`.
+- **Location.** Picked in onboarding (kitchen step) or More → Your area: GPS or a Bangalore area. Flipkart Minutes needs a pincode, so a GPS fix borrows the nearest area's pincode. The default is central Bangalore.
+- **Matching** (`lib/live-prices.ts`). Every ingredient has a `searchQuery` and `packSize` (in `data/source/ingredient-search.ts`). For each store the app takes products whose name matches, prefers in-stock ones, then the pack size closest to `packSize`, then the cheapest. Wrong forms (powder, chips, combo packs…) and per-ingredient exclusions are skipped.
+
 ## Deploy to Vercel
 
 1. Push the repo to GitHub.
 2. In Vercel, **Add New → Project**, import the repo. In the bitecraft-web repo the app is at the root, so leave **Root Directory** empty (set it to `web` only if the app sits in a `web/` subfolder). Everything else is detected (Next.js, `npm run build`).
-3. Under **Settings → Environment Variables**, add `GEMINI_API_KEY` (and optionally `GEMINI_MODEL`) for Production and Preview.
+3. Under **Settings → Environment Variables**, add `GEMINI_API_KEY`, `GEMINI_MODEL`, `QCAPI_KEY` and `QCAPI_DAILY_LIMIT` for Production and Preview.
 4. Deploy. The app is static except `/api/chef`, which runs as a serverless function.
 
 Or with the CLI: `cd web && npx vercel` then `npx vercel env add GEMINI_API_KEY`.
@@ -63,7 +82,7 @@ Or with the CLI: `cd web && npx vercel` then `npx vercel env add GEMINI_API_KEY`
 The same code ships as an Android app. A mobile build (`BUILD_TARGET=mobile`) does a static export into `out/`: no API routes, no service worker, every screen as `<screen>/index.html`. Capacitor (`com.bitecraft.app`, project in `android/`) bundles that into the APK, so the app works fully offline.
 
 Inside the app:
-- **Chef**: with no server, it answers from the local recipe book on the phone. To use the live AI Chef, deploy the web version first, then build with `NEXT_PUBLIC_API_BASE=https://your-bitecraft.vercel.app` and the app calls that `/api/chef` (CORS is allowed). If that call fails, it falls back to the local engine. It never shows an error.
+- **Chef and live prices**: the app has no server of its own. Build with `NEXT_PUBLIC_API_BASE=https://bitecraft-web.vercel.app` (your deployed site) and it calls that site's `/api/chef` and `/api/prices` (CORS is allowed). Without it, or if a call fails, the Chef answers from the recipe book on the phone and Quick Mart shows sample prices, plainly labelled. It never shows an error. No API key is ever bundled into the APK.
 - **Back button** goes back a screen; on the Explore tab it closes the app.
 - **Status bar** matches the header colour and follows the light/dark theme.
 - **Cook mode** keeps the screen on (`@capacitor-community/keep-awake`) and buzzes with `@capacitor/haptics` when a timer ends.
@@ -107,7 +126,11 @@ lib/storage.ts        the only code that touches localStorage (try/catch, safe d
 lib/state.ts          typed hooks per storage key, with validation
 lib/search.ts         dual-name search
 lib/planner.ts        greedy day planner + local search on portions
-lib/prices.ts         basket comparison
+lib/prices.ts         sample-price basket comparison (fallback)
+lib/live-prices.ts    live prices: pack parsing, matching, ₹/kg, basket summary (pure)
+lib/qc-server.ts      QuickCommerce API client, cache, daily limit (server only)
+lib/live-client.ts    browser side: calls /api/prices, 6 h phone cache
+lib/location.ts       Bangalore areas and the saved location
 lib/chef.ts           ingredient parsing + coverage matching (shared by server and offline fallback)
 data/source/          hand-written ingredients and recipes (edit these)
 data/*.json           generated, imported at build time
