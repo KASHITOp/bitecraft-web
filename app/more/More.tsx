@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Icon, type IconName } from "@/components/Icon";
 import { PageTitle, Section, Segmented } from "@/components/ui";
+import { AreaPicker } from "@/components/AreaPicker";
 import { TIER_LABEL } from "@/lib/data";
 import { useTargets } from "@/lib/hooks";
 import { ACTIVITY, ALL_GEAR, GOAL_LABEL } from "@/lib/profile";
@@ -68,6 +69,12 @@ export function More() {
         )}
       </Section>
 
+      <Section label="Your area">
+        <div id="area">
+          <AreaPicker />
+        </div>
+      </Section>
+
       <Section label="Theme">
         <Segmented<ThemePref>
           name="theme"
@@ -102,7 +109,7 @@ export function More() {
       </Section>
 
       <p className="px-4 pt-4 text-xs text-muted">
-        Store prices in this app are sample prices from Oct 2026, not live. Nutrition values are estimates.
+        Quick Mart shows live prices via QuickCommerce API when you tap Check live prices; otherwise sample prices from Oct 2026. Nutrition values are estimates.
       </p>
     </div>
   );

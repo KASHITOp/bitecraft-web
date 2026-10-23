@@ -60,6 +60,15 @@ describe("product matching", () => {
     expect(pickBest([prod("Shampoo", "200 ml", 99)], { searchQuery: "paneer", packSize: "200 g" }).status).toBe("nomatch");
   });
 
+  it("does not pick a 2 kg combo bundle for a 1 kg need (seen on real Zepto data)", () => {
+    const offer = pickBest(
+      [prod("Onion Combo", "1000 g X 2", 132, { brand: "BUNDLE" }), prod("Onion (Pyaz)", "1 kg", 49), prod("Onion", "2 kg", 90)],
+      { searchQuery: "onion", packSize: "1 kg", searchExclude: ["spring"] },
+    );
+    expect(offer.product?.name).toBe("Onion (Pyaz)");
+    expect(nameScore({ name: "Onion Combo", brand: "BUNDLE" }, "onion")).toBe(-1);
+  });
+
   it("ignores sponsored results when there are organic ones", () => {
     const offer = pickBest([prod("Toned Milk", "500 ml", 20, { is_ad: true }), prod("Toned Milk", "500 ml", 27)], { searchQuery: "toned milk", packSize: "500 ml" });
     expect(offer.product?.offerPrice).toBe(27);
@@ -76,6 +85,8 @@ describe("per-kg / per-litre normalisation", () => {
 
   it("parses the pack labels stores use", () => {
     expect(parseQuantities("2 x 200 ml")[0]).toEqual({ amount: 400, unit: "ml" });
+    expect(parseQuantities("1000 g X 2")[0]).toEqual({ amount: 2000, unit: "g" });
+    expect(parseQuantities("0.95-1.05Kg")[0]).toEqual({ amount: 1000, unit: "g" });
     expect(parseQuantities("1 ltr")[0]).toEqual({ amount: 1000, unit: "ml" });
     expect(parseQuantities("500-600 g")[0]).toEqual({ amount: 550, unit: "g" });
     expect(parseQuantities("Pack of 6")[0]).toEqual({ amount: 6, unit: "pc" });

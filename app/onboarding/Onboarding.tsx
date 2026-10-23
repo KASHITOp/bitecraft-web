@@ -4,6 +4,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { Icon, type IconName } from "@/components/Icon";
 import { Segmented } from "@/components/ui";
+import { AreaPicker } from "@/components/AreaPicker";
 import { ACTIVITY, ALL_GEAR, bmr, GOAL_LABEL, targets, type Activity, type Profile, type Sex } from "@/lib/profile";
 import { useOnboarding, useProfile } from "@/lib/state";
 import { useHydrated } from "@/lib/useStored";
@@ -234,6 +235,10 @@ function Form({ initial }: { initial: Profile | null }) {
                   </button>
                 );
               })}
+            </div>
+            <div className="mt-6 border-t border-rule pt-4">
+              <p className="label mb-2">Where do you live? (for live grocery prices)</p>
+              <AreaPicker />
             </div>
           </fieldset>
         )}

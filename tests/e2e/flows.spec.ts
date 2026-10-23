@@ -237,3 +237,36 @@ test("reload the page, all user data still there", async ({ page }) => {
   await page.goto("/shopping");
   expect(await page.getByTestId("shopping-item").count()).toBeGreaterThan(0);
 });
+
+test("Check live prices with no QCAPI_KEY falls back to labelled sample prices, no error", async ({ page }) => {
+  await seed(page);
+  let calls = 0;
+  page.on("request", (r) => {
+    if (r.url().includes("/api/prices")) calls++;
+  });
+  // nothing is fetched just by opening Quick Mart
+  await page.goto("/mart?recipe=pg-pav-bhaji");
+  await expect(page.getByTestId("check-live")).toBeVisible();
+  await page.waitForTimeout(500);
+  expect(calls).toBe(0);
+
+  // the recipe page's button takes you there and checks once
+  await page.goto("/recipe?id=pg-pav-bhaji");
+  await page.getByTestId("recipe-live-prices").click();
+  await expect(page.getByTestId("live-fallback")).toContainText("sample prices");
+  expect(calls).toBe(1);
+  await expect(page.getByTestId("sample-label")).toContainText("Sample prices, Oct 2026");
+  await expect(page.getByTestId("store-totals").locator("[data-cheapest]")).toHaveCount(3);
+  const body = await page.locator("main").innerText();
+  // (pack sizes like "500 g" are fine; error words and HTTP status lines are not)
+  expect(body).not.toMatch(/error|exception|undefined|status d{3}|50[0-4](?! ?(g|ml|gm))/i);
+});
+
+test("area can be set in More and is kept", async ({ page }) => {
+  await seed(page);
+  await page.goto("/more");
+  await page.getByLabel("Or pick your area").selectOption({ label: "HSR Layout" });
+  await expect(page.getByTestId("area-current")).toHaveText("HSR Layout");
+  await page.reload();
+  await expect(page.getByTestId("area-current")).toHaveText("HSR Layout");
+});

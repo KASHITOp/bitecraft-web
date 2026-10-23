@@ -2,6 +2,7 @@
 
 import { useStored } from "./useStored";
 import { cleanProfile, type Profile } from "./profile";
+import { cleanLocation, DEFAULT_LOCATION, type UserLocation } from "./location";
 import type { ChefRecipe, MealSlot } from "./types";
 
 /* ---------- small validators ---------- */
@@ -207,4 +208,10 @@ const EMPTY_CHAT: ChatMessage[] = [];
 const cleanChat = arrayOf(cleanMsg);
 export function useChat() {
   return useStored<ChatMessage[]>("chat", EMPTY_CHAT, cleanChat);
+}
+
+/* ---------- location for live prices ---------- */
+
+export function useLocation() {
+  return useStored<UserLocation>("location", DEFAULT_LOCATION, cleanLocation);
 }

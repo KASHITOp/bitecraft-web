@@ -24,7 +24,7 @@ export default defineConfig({
     port: PORT,
     reuseExistingServer: false,
     timeout: 120_000,
-    // No key: the Chef must fall back to the local engine.
-    env: { GEMINI_API_KEY: "", GEMINI_MODEL: "" },
+    // No keys: the Chef and live prices must fall back to local data.
+    env: { GEMINI_API_KEY: "", GEMINI_MODEL: "", QCAPI_KEY: "" },
   },
 });

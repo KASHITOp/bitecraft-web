@@ -92,9 +92,12 @@ export function Shopping() {
       ) : (
         <>
           <div className="flex flex-wrap gap-2 px-4 pt-4">
-            <Link href="/mart?list=1" className="btn btn-primary flex-1">
+            <Link href="/mart?list=1&live=1" className="btn btn-primary flex-1" data-testid="list-live-prices">
               <Icon name="store" size={20} />
-              Compare store prices
+              Check live prices
+            </Link>
+            <Link href="/mart?list=1" className="btn flex-1">
+              Sample prices
             </Link>
           </div>
           {groups.map((g) => (

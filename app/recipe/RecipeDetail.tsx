@@ -92,6 +92,10 @@ function Detail({ r }: { r: Recipe }) {
             Compare stores
           </Link>
         </p>
+        <Link href={`/mart?recipe=${r.id}&live=1`} className="btn mt-3 w-full" data-testid="recipe-live-prices">
+          <Icon name="store" size={20} />
+          Check live prices
+        </Link>
       </header>
 
       <Section label="You need">

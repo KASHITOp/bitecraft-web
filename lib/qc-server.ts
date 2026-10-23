@@ -207,6 +207,10 @@ export async function livePrices(
         anyData = true;
         oldest = Math.min(oldest, r.at);
         offers[platform] = pickBest(r.products, ing, r.at);
+        if (offers[platform].status === "nomatch") {
+          const sample = r.products.slice(0, 3).map((p) => `${p.name} (${p.quantity ?? "?"})`).join("; ");
+          deps.log(`[prices] ${platform} "${ing.searchQuery}": ${r.products.length} result(s), no match${sample ? `: ${sample}` : ""}`);
+        }
       }
     }
     return { id: ing.id, query: ing.searchQuery, packSize: ing.packSize, offers };

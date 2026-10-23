@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState, type ReactNode } from "react";
 import { Icon } from "@/components/Icon";
+import { LivePrices } from "@/components/LivePrices";
 import { BackLink, EmptyState, PageTitle, Section } from "@/components/ui";
 import { dualName, getRecipe, ING, RECIPES } from "@/lib/data";
 import { compareBasket, PRICE_LABEL, STORES, type BasketLine } from "@/lib/prices";
@@ -19,6 +20,9 @@ export function Mart() {
   const [skipPantry, setSkipPantry] = useState(true);
   const [pick, setPick] = useState("");
   const source: "recipe" | "list" = recipe ? "recipe" : "list";
+  const autoLive = params.get("live") === "1";
+  const [liveShown, setLiveShown] = useState(false);
+  const onLive = useCallback((v: boolean) => setLiveShown(v), []);
 
   const pantryIds = useMemo(() => new Set(pantry.map((p) => p.id)), [pantry]);
 
@@ -39,6 +43,7 @@ export function Mart() {
   }, [recipe, list, skipPantry, pantryIds]);
 
   const cmp = useMemo(() => (lines.length ? compareBasket(lines, ING) : null), [lines]);
+  const liveIds = useMemo(() => lines.map((l) => l.ingredientId), [lines]);
   const matches = pick.trim() ? searchRecipes(pick, RECIPES, ING).slice(0, 6) : [];
 
   return (
@@ -48,16 +53,6 @@ export function Mart() {
       </div>
       <PageTitle sub="Basket total on each quick-commerce app, side by side.">Quick Mart</PageTitle>
 
-      <p
-        className="mx-4 flex items-start gap-2 rounded-md border-[1.5px] border-dashed border-rule-strong bg-surface px-3 py-2 text-sm"
-        data-testid="sample-label"
-      >
-        <Icon name="store" size={18} className="mt-0.5 shrink-0" />
-        <span>
-          <strong>{PRICE_LABEL}.</strong> These are sample shelf prices for Bangalore, not live. Check the app before you
-          order.
-        </span>
-      </p>
 
       <div className="mt-3 flex gap-2 px-4" role="group" aria-label="What to price">
         <button
@@ -132,6 +127,18 @@ export function Mart() {
         )
       ) : (
         <>
+          <LivePrices ids={liveIds} autoStart={autoLive} onLive={onLive} />
+          <SampleBlock collapsed={liveShown}>
+          <p
+            className="mx-4 mt-3 flex items-start gap-2 rounded-md border-[1.5px] border-dashed border-rule-strong bg-surface px-3 py-2 text-sm"
+            data-testid="sample-label"
+          >
+            <Icon name="store" size={18} className="mt-0.5 shrink-0" />
+            <span>
+              <strong>{PRICE_LABEL}.</strong> These are sample shelf prices for Bangalore, not live. Check the app before you
+              order.
+            </span>
+          </p>
           <div className="grid grid-cols-3 gap-2 px-4 pt-2" data-testid="store-totals">
             {cmp.totals.map((t) => {
               const store = STORES.find((s) => s.id === t.store)!;
@@ -217,8 +224,20 @@ export function Mart() {
             </table>
             <p className="mt-2 text-xs text-muted">Whole packs, since you can&apos;t buy 60 g of poha. Lowest price per row in bold.</p>
           </Section>
+          </SampleBlock>
         </>
       )}
     </div>
+  );
+}
+
+/** The sample-price comparison. Once live prices are on screen it folds away under a toggle. */
+function SampleBlock({ collapsed, children }: { collapsed: boolean; children: ReactNode }) {
+  if (!collapsed) return <>{children}</>;
+  return (
+    <details className="mt-4">
+      <summary className="tap mx-4 flex cursor-pointer items-center text-sm font-semibold">Show sample prices (Oct 2026)</summary>
+      {children}
+    </details>
   );
 }

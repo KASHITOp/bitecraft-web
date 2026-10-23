@@ -103,10 +103,16 @@ export function parseQuantities(text: string | null | undefined): Qty[] {
   if (!text) return [];
   const s = text.toLowerCase().replace(/,/g, " ");
   const out: Qty[] = [];
+  // multipacks, written either way round: "2 x 200 ml" or "1000 g X 2"
   const multi = s.match(/(\d+)\s*[x×*]\s*(\d+(?:\.\d+)?)\s*([a-z]+)/);
   if (multi) {
     const u = unitOf(multi[3]);
     if (u) out.push({ amount: Number(multi[1]) * Number(multi[2]) * u[1], unit: u[0] });
+  }
+  const multiAfter = s.match(/(\d+(?:\.\d+)?)\s*([a-z]+)\s*[x×*]\s*(\d+)(?![\d.]*\s*[a-z])/);
+  if (!multi && multiAfter) {
+    const u = unitOf(multiAfter[2]);
+    if (u) out.push({ amount: Number(multiAfter[1]) * Number(multiAfter[3]) * u[1], unit: u[0] });
   }
   const packOf = s.match(/pack\s*of\s*(\d+)/);
   if (packOf) out.push({ amount: Number(packOf[1]), unit: "pc" });
@@ -164,6 +170,8 @@ const FORM_WORDS = [
   "powder", "chips", "flakes", "paste", "pickle", "sauce", "juice", "puree", "mix", "rings",
   "cookies", "biscuit", "biscuits", "cake", "drink", "candy", "soup", "chutney", "jam", "ketchup",
   "noodles", "namkeen", "seeds", "oil", "masala", "dehydrated", "frozen", "fries", "nuggets", "cubes",
+  // multi-product bundles are never the single ingredient
+  "combo", "bundle", "kit",
 ];
 
 const tokenize = (s: string) =>

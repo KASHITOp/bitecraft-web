@@ -16,7 +16,9 @@ export type StoreKey =
   | "shopping"
   | "plan"
   | "settings"
-  | "chat";
+  | "chat"
+  | "location"
+  | "livePrices";
 
 function storage(): Storage | null {
   if (typeof window === "undefined") return null;
